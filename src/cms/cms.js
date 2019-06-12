@@ -10,5 +10,5 @@ CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
 
 CMS.registerPreviewTemplate('index', IndexPagePreview);
-CMS.registerPreviewTemplate('about', MissionPagePreview);
+CMS.registerPreviewTemplate('mission', MissionPagePreview);
 CMS.registerPreviewTemplate('blog', BlogPostPreview);
