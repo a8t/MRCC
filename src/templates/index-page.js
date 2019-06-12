@@ -74,8 +74,8 @@ const IndexPage = ({ data }) => {
           <h5 className="subtitle">{mainpitch.description}</h5>
         </section>
         <section style={{ maxWidth: '60rem', margin: 'auto', padding: 16 }}>
-          <h1 className="title">{heading}</h1>
-          <h5 className="subtitle">{description}</h5>
+          <h1 className="title">{intro.heading}</h1>
+          <h5 className="subtitle">{intro.description}</h5>
 
           <Features gridItems={intro.blurbs} />
 
@@ -126,12 +126,12 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
         mainpitch {
           title
           description
         }
         intro {
+          heading
           blurbs {
             image {
               childImageSharp {
@@ -142,8 +142,6 @@ export const pageQuery = graphql`
             }
             text
           }
-          heading
-          description
         }
       }
     }

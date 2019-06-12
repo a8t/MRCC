@@ -9,8 +9,8 @@ mainpitch:
   description: >
     The Migrant Resource Centre Canada is a non-profit organization which aims to improve the lives of migrant and immigrant workers by advancing their rights and dignity while working and living in Canada.
 
-heading: What we do
 intro:
+  heading: What we do
   blurbs:
     - image: /img/mrc_panel.jpg
       text: >
