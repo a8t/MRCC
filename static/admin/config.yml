@@ -72,9 +72,9 @@ collections:
                 ],
             }
 
-      - file: 'src/pages/about/index.md'
-        label: 'About'
-        name: 'about'
+      - file: 'src/pages/mission/index.md'
+        label: 'Mission'
+        name: 'mission'
         fields:
           - {
               label: 'Template Key',
