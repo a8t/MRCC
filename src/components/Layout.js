@@ -10,7 +10,7 @@ const TemplateWrapper = ({ children }) => {
   return (
     <React.Fragment>
       <Helmet>
-        <html lang="en" />
+        <html lang="en" className="has-navbar-fixed-top" />
         <title>{title}</title>
         <meta name="description" content={description} />
 
@@ -19,16 +19,17 @@ const TemplateWrapper = ({ children }) => {
           sizes="180x180"
           href="/img/apple-touch-icon.png"
         />
+
         <link
           rel="icon"
-          type="image/png"
-          href="/img/favicon-32x32.png"
+          type="image/svg"
+          href="/img/favicon.ico"
           sizes="32x32"
         />
         <link
           rel="icon"
-          type="image/png"
-          href="/img/favicon-16x16.png"
+          type="image/svg"
+          href="/img/favicon.ico"
           sizes="16x16"
         />
 

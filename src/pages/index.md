@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-image: /img/mrc_04.jpg
+image: /img/mrc_03.jpg
 title: Migrants Resource Centre Canada
 subtitle: For the rights and dignity of all migrants working and living in Canada
 
