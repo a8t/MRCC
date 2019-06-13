@@ -1,8 +1,8 @@
 ---
 templateKey: index-page
-image: /img/17492805_1740358002683235_8357800683771564648_o.jpg
+image: /img/mrc_j4m4.jpg
 title: Migrants Resource Centre Canada
-subtitle: Dignity and Justice for All Workers
+subtitle: Dignity and Justice for ALL Workers
 mainpitch:
   description: >
     The Migrant Resource Centre Canada is a non-profit organization which aims
