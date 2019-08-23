@@ -1,10 +1,22 @@
 ---
 templateKey: blog-post
-title: Making sense of the SCAA’s new Flavor Wheel
+title: >-
+  IMPACT Project - Immigrants and Migrants Participating for Collective
+  Transformation
 date: 2016-12-17T15:04:10.000Z
+description: >-
+  Join our 9 workshop course on building leaders and advocates in the
+  community! 
+
+
+  Details of this project will follow. 
+
+  For more information, email info@migrantsresourcecentre.ca
+
+
+  This project is made possible by the Canadian Heritage
 featuredpost: false
 featuredimage: /img/flavor_wheel.jpg
-description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
 tags:
   - flavor
   - tasting
