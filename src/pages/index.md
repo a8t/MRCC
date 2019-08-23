@@ -2,12 +2,12 @@
 templateKey: index-page
 image: /img/mrc_j4m4.jpg
 title: Migrants Resource Centre Canada
-subtitle: Dignity and Justice for ALL Workers
+subtitle: 'Dignity and Justice to all workers '
 mainpitch:
   description: >
-    The Migrant Resource Centre Canada is a non-profit organization which aims
-    to improve the lives of migrant and immigrant workers by advancing their
-    rights and dignity while working and living in Canada.
+    The Migrants Resource Centre Canada is a registered, not for profit, migrant
+    service institution who aims to empower workers through service, information
+    and advocacy.
   title: Who we are
 intro:
   blurbs:
@@ -16,26 +16,23 @@ intro:
         Information and Referral 
 
 
-        We provide up to date information and counselling on Immigration, Labor
-        and health related information. We refer our clients to appropriate
-        servicing agencies or community organizations to address their immediate
-        concerns. 
-    - image: /img/21908309_10208864041672225_902975889_o.jpg
+        MRCC works with clients on an individual capacity to provide, free, up
+        to date information about labor, immigration and social services
+        available. 
+    - image: /img/68681356_521667665272597_7820815290563821568_n.jpg
       text: >-
         Education and Workshop 
 
 
-        We provide workshops and thematic education series to our clients and
-        community groups, partners. We prioritize working with worker led
-        organizations to build worker capacity. 
+        We provide education and workshops to contribute to the capacity
+        development of people’s movements, and workers associations. 
     - image: /img/isepp-fb.jpg
       text: >-
         Research and Advocacy 
 
 
-        We facilitate socially engaged research and collaboration with the
-        post-secondary institutions to raise awareness and improve the lives of
-        migrants and newcomer workers. 
+        We engage in research and partnerships with various institutions to
+        advance the plight of workers and our clients. 
   heading: What we do
 ---
 
