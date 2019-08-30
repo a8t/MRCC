@@ -1,4 +1,20 @@
 @import "~bulma/sass/utilities/initial-variables"
+@import "~bulma"
+
+@font-face
+  font-family: 'De Rotterdam';
+  src:  url('../../static/DeRotterdamDemo-Regular.woff') format('woff');
+
+@font-face
+  font-family: 'Lato';
+  src:  url('../../static/Lato-Light.woff') format('woff');
+  font-weight: lighter
+
+@font-face
+  font-family: 'Lato';
+  src:  url('../../static/Lato-Regular.woff') format('woff');
+  font-weight: normal
+
 
 // Config vars
 // Kaldi logo brand color: #FD461E
@@ -10,8 +26,28 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
-.navbar .navbar-menu
-  box-shadow:none !important
+$neutral: #f1f1e6
+$neutral-2: #eefcfc
+$highlight: #00aaad
+$primary-dark: #001514
+
+body
+  font-family: 'Lato'
+
+.line
+  display: inline-block
+
+.has-primary-background
+  background-color: rgba($primary, 0.7)
+
+.has-primary-color
+  color: $primary
+
+.has-mrcc-font, nav
+  font-family: 'De Rotterdam'
+
+.navbar
+  border-bottom: 1px solid $primary
 
 .content .taglist
   list-style: none
@@ -82,7 +118,7 @@ $black: #2b2523
   padding: 0 1rem
 footer.footer
   padding: 3rem 0rem 0rem
-  background-color: transparent
+  background-color: $primary-dark
 
 //Menu overrides
 $menu-item-color: $white-ter
@@ -100,6 +136,9 @@ $menu-label-color: $white-ter
 .menu-list
   list-style: none !important
   text-align: left
+  a
+    color: white
+
 .social
   padding: 2em
 .social a
@@ -114,7 +153,7 @@ $menu-label-color: $white-ter
 
 // blog roll
 .blog-list-item.is-featured
-  background-color: #d6400033;
+  // background-color: #d6400033;
 .blog-list-item header
   display: flex;
   margin-bottom: 1em;
@@ -123,7 +162,6 @@ $menu-label-color: $white-ter
   margin: 0 1.5em 0 0;
 
 
-@import "~bulma"
 
 
 // responsiveness
