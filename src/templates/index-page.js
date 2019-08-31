@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
-import Features from '../components/Features';
+import Layout from '../components/shared/Layout';
+import Features from '../components/index-page/Features';
 import BlogRoll from '../components/BlogRoll';
 import Header from '../components/index-page/Header';
-import ButtonLink from '../components/ButtonLink';
+import ButtonLink from '../components/shared/ButtonLink';
 
 export const IndexPageTemplate = ({ mainpitch, intro }) => (
   <React.Fragment>

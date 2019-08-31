@@ -1,11 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import theme from '../components/theme';
+import Footer from './Footer';
+import Navbar from './Navbar';
+import theme from './theme';
 import './all.sass';
-import useSiteMetadata from './SiteMetadata';
+import useSiteMetadata from '../hooks/useSiteMetadata';
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();

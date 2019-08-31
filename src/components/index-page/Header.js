@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-import ButtonLink from '../ButtonLink';
+import ButtonLink from '../shared/ButtonLink';
 
 const HeaderContainer = styled.header`
   display: grid;
