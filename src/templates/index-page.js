@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
+import Header from '../components/Header';
+import ButtonLink from '../components/ButtonLink';
 
 export const IndexPageTemplate = ({
   image,
@@ -14,54 +16,8 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <React.Fragment>
-    <header
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `bottom`,
+    <Header image={image} title={title} subtitle={subtitle} />
 
-        // backgroundPosition: `top center`,
-        // backgroundAttachment: 'fixed',
-        // backgroundSize: 'auto',
-        // backgroundRepeat: 'no-repeat',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            backgroundColor: 'rgba(0, 68, 68, 0.7)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            backgroundColor: 'rgba(0, 68, 68, 0.7)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subtitle}
-        </h3>
-      </div>
-    </header>
     <main style={{ display: 'flex', flexDirection: 'column' }}>
       <section
         style={{
@@ -100,9 +56,9 @@ export const IndexPageTemplate = ({
       >
         <h1 className="title">Latest stories</h1>
         <BlogRoll />
-        <Link className="btn" to="/blog" style={{ alignSelf: 'center' }}>
+        <ButtonLink to="/blog" style={{ alignSelf: 'center' }}>
           Read more
-        </Link>
+        </ButtonLink>
       </section>
     </main>
   </React.Fragment>
