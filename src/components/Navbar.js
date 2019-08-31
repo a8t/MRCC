@@ -17,37 +17,35 @@ const Navbar = () => {
       role="navigation"
       aria-label="main-navigation"
     >
-      <div className="container">
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-item" title="Logo">
-            <img src={logo} alt="MRCC" style={{ width: '88px' }} />
-          </Link>
-          {/* Hamburger menu */}
-          <div
-            className={`navbar-burger burger ${navBarActiveClass}`}
-            data-target="navMenu"
-            onClick={() => toggleHamburger()}
-          >
-            <span />
-            <span />
-            <span />
-          </div>
+      <div className="navbar-brand">
+        <Link to="/" className="navbar-item" title="Logo">
+          <img src={logo} alt="MRCC" style={{ width: '88px' }} />
+        </Link>
+        {/* Hamburger menu */}
+        <div
+          className={`navbar-burger burger ${navBarActiveClass}`}
+          data-target="navMenu"
+          onClick={() => toggleHamburger()}
+        >
+          <span />
+          <span />
+          <span />
         </div>
-        <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
-          <div className="navbar-start has-text-centered">
-            <Link className="navbar-item" to="/mission">
-              Our mission
-            </Link>
-            <Link className="navbar-item" to="/">
-              Campaigns
-            </Link>
-            <Link className="navbar-item" to="/blog">
-              Blog
-            </Link>
-            <Link className="navbar-item" to="/contact">
-              Contact
-            </Link>
-          </div>
+      </div>
+      <div className={`navbar-menu ${navBarActiveClass}`}>
+        <div className="navbar-start">
+          <Link className="navbar-item" to="/mission">
+            Our mission
+          </Link>
+          <Link className="navbar-item" to="/">
+            Campaigns
+          </Link>
+          <Link className="navbar-item" to="/blog">
+            Blog
+          </Link>
+          <Link className="navbar-item" to="/contact">
+            Contact
+          </Link>
         </div>
       </div>
     </nav>
