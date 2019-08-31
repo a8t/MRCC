@@ -1,8 +1,9 @@
 import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 
-import logo from '../img/IMG_5158.jpg';
-import ButtonLink from '../components/ButtonLink';
+import ButtonLink from '../ButtonLink';
 
 const HeaderContainer = styled.header`
   display: grid;
@@ -10,7 +11,7 @@ const HeaderContainer = styled.header`
   grid-template-rows: 1fr;
   grid-template-areas: 'both-items';
 
-  img,
+  .splash,
   section {
     grid-area: both-items;
     height: 50vh;
@@ -19,10 +20,15 @@ const HeaderContainer = styled.header`
   }
 
   @media screen and (min-width: 1024px) {
-    img,
+    .splash,
     section {
       height: 70vh;
+      width: 100%;
     }
+  }
+
+  .splash {
+    z-index: -1;
   }
 
   section {
@@ -30,7 +36,7 @@ const HeaderContainer = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 55, 55, 0.7);
+    background: rgba(0, 55, 55, 0.4);
     color: white;
     padding: 3em;
     text-align: center;
@@ -46,19 +52,12 @@ const HeaderContainer = styled.header`
       margin-bottom: 0.5em;
     }
   }
-
-  img {
-    width: 100%;
-  }
-  section {
-    background: rgba(0, 55, 55, 0.4);
-  }
 `;
 
 const Header = ({ image, title, subtitle }) => {
   return (
     <HeaderContainer>
-      <img src={logo} alt="MRCC" />
+      <Img className="splash" fluid={image.childImageSharp.fluid} alt="MRCC" />
 
       <section>
         <h1 className="is-size-3-mobile is-size-3-tablet is-size-3-touch is-size-1-desktop is-size-1-widescreen is-size-1-fullhd">
@@ -73,4 +72,29 @@ const Header = ({ image, title, subtitle }) => {
   );
 };
 
-export default Header;
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query HeaderQuery {
+        markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+          frontmatter {
+            title
+            subtitle
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={({
+      markdownRemark: {
+        frontmatter: { title, subtitle, image },
+      },
+    }) => <Header {...{ title, subtitle, image }} />}
+  />
+);
