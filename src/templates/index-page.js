@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/shared/Layout';
-import Features from '../components/index-page/Features';
 import BlogRoll from '../components/BlogRoll';
-import Header from '../components/index-page/Header';
+import Layout from '../components/shared/Layout';
 import ButtonLink from '../components/shared/ButtonLink';
+import WhatWeDo from '../components/index-page/WhatWeDo';
+import Header from '../components/index-page/Header';
 
 export const IndexPageTemplate = ({ mainpitch, intro }) => (
   <React.Fragment>
@@ -35,7 +35,7 @@ export const IndexPageTemplate = ({ mainpitch, intro }) => (
         <h1 className="title">{intro.heading}</h1>
         <h5 className="subtitle">{intro.description}</h5>
 
-        <Features gridItems={intro.blurbs} />
+        <WhatWeDo gridItems={intro.blurbs} />
       </section>
       <section
         style={{
@@ -60,23 +60,12 @@ export const IndexPageTemplate = ({ mainpitch, intro }) => (
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-  const {
-    image,
-    title,
-    heading,
-    subtitle,
-    mainpitch,
-    description,
-    intro,
-  } = frontmatter;
+  const { heading, mainpitch, description, intro } = frontmatter;
 
   return (
     <Layout>
       <IndexPageTemplate
-        image={image}
-        title={title}
         heading={heading}
-        subtitle={subtitle}
         description={description}
         intro={intro || { blurbs: [] }}
         mainpitch={mainpitch || {}}

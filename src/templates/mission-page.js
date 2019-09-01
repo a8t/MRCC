@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
+import Layout from '../components/shared/Layout';
 import Content, { HTMLContent } from '../components/shared/Content';
 
 export const MissionPageTemplate = ({ title, content, contentComponent }) => {
