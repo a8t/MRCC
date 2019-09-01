@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
@@ -54,7 +54,31 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const Header = ({ image, title, subtitle }) => {
+const query = graphql`
+  query HeaderQuery {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      frontmatter {
+        title
+        subtitle
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default function Header() {
+  const {
+    markdownRemark: {
+      frontmatter: { title, subtitle, image },
+    },
+  } = useStaticQuery(query);
+
   return (
     <HeaderContainer>
       <Img className="splash" fluid={image.childImageSharp.fluid} alt="MRCC" />
@@ -70,31 +94,4 @@ const Header = ({ image, title, subtitle }) => {
       </section>
     </HeaderContainer>
   );
-};
-
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query HeaderQuery {
-        markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-          frontmatter {
-            title
-            subtitle
-            image {
-              childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={({
-      markdownRemark: {
-        frontmatter: { title, subtitle, image },
-      },
-    }) => <Header {...{ title, subtitle, image }} />}
-  />
-);
+}
