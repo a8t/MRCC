@@ -5,10 +5,10 @@ import { graphql } from 'gatsby';
 import BlogRoll from '../components/BlogRoll';
 import Layout from '../components/shared/Layout';
 import ButtonLink from '../components/shared/ButtonLink';
-import WhatWeDo from '../components/index-page/WhatWeDo';
+import IntroBlurbs from '../components/index-page/IntroBlurbs';
 import Header from '../components/index-page/Header';
 
-export const IndexPageTemplate = ({ mainpitch, intro }) => (
+export const IndexPageTemplate = ({ mainpitch }) => (
   <React.Fragment>
     <Header />
 
@@ -24,19 +24,9 @@ export const IndexPageTemplate = ({ mainpitch, intro }) => (
         <h1 className="title">{mainpitch.title}</h1>
         <h5 className="subtitle">{mainpitch.description}</h5>
       </section>
-      <section
-        style={{
-          width: '100%',
-          maxWidth: '60rem',
-          margin: 'auto',
-          padding: 16,
-        }}
-      >
-        <h1 className="title">{intro.heading}</h1>
-        <h5 className="subtitle">{intro.description}</h5>
 
-        <WhatWeDo gridItems={intro.blurbs} />
-      </section>
+      <IntroBlurbs />
+
       <section
         style={{
           width: '100%',
@@ -60,16 +50,11 @@ export const IndexPageTemplate = ({ mainpitch, intro }) => (
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-  const { heading, mainpitch, description, intro } = frontmatter;
+  const { mainpitch } = frontmatter;
 
   return (
     <Layout>
-      <IndexPageTemplate
-        heading={heading}
-        description={description}
-        intro={intro || { blurbs: [] }}
-        mainpitch={mainpitch || {}}
-      />
+      <IndexPageTemplate mainpitch={mainpitch || {}} />
     </Layout>
   );
 };
@@ -80,9 +65,6 @@ IndexPage.propTypes = {
       frontmatter: PropTypes.shape({
         heading: PropTypes.string,
         mainpitch: PropTypes.object,
-        intro: PropTypes.shape({
-          blurbs: PropTypes.array,
-        }),
       }),
     }),
   }),
@@ -97,19 +79,6 @@ export const pageQuery = graphql`
         mainpitch {
           title
           description
-        }
-        intro {
-          heading
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
         }
       }
     }
