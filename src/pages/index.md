@@ -11,19 +11,14 @@ mainpitch:
   title: Who we are
 intro:
   blurbs:
-    - image: /img/mrc_panel.jpg
-      title: Information and Referral
-      text:
-        MRCC works with clients on an individual capacity to provide, free, up
-        to date information about labor, immigration and social services
-        available.
-    - image: /img/68681356_521667665272597_7820815290563821568_n.jpg
-      title: Education and Workshop
-      text: We provide education and workshops to contribute to the capacity
-        development of people’s movements, and workers associations.
-    - image: /img/isepp-fb.jpg
-      title: Research and Advocacy
-      text: We engage in research and partnerships with various institutions to
-        advance the plight of workers and our clients.
+    - title: Information and Referral
+      text: Free, up to date information about labor, immigration, and social services
+      image: /img/research.png
+    - title: Education and Workshops
+      text: Education to develop capacity of people’s movements and workers associations.
+      image: /img/education.png
+    - title: Research and Advocacy
+      text: Partnership with various institutions to advance the plight of workers and our clients.
+      image: /img/advocacy.png
   heading: What we do
 ---
