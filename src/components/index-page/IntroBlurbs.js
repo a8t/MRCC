@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import ButtonLink from '../shared/ButtonLink';
 
 const query = graphql`
   query IntroBlurbsQuery {
@@ -37,10 +38,13 @@ const BlurbsContainer = styled.section`
   display: grid;
   grid-gap: 16px;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    'blurbs blurbs blurbs'
+    '   .     .    button';
 
   .blurb {
     background: rgba(0, 55, 55, 0.05);
-    border-radius: 16px 48px;
+    border-radius: 8px 32px;
     padding-top: 16px;
     padding-left: 32px;
     padding-right: 32px;
@@ -65,15 +69,25 @@ const BlurbsContainer = styled.section`
     }
   }
 
+  ${ButtonLink} {
+    margin-left: auto;
+    grid-area: button;
+  }
+
   @media (max-width: 767px) {
     grid-gap: 16px;
     grid-template-columns: 1fr;
+    grid-template-areas: initial;
 
     .blurb {
       text-align: center;
       padding: 15px;
       padding-top: 5px;
       border-radius: 5px;
+    }
+
+    ${ButtonLink} {
+      grid-area: unset;
     }
   }
 `;
@@ -101,6 +115,10 @@ const IntroBlurbs = () => {
           <p>{text}</p>
         </div>
       ))}
+
+      <ButtonLink className="services-link" to="/mission">
+        See our services →
+      </ButtonLink>
     </BlurbsContainer>
   );
 };
