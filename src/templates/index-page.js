@@ -19,6 +19,7 @@ export const IndexPageTemplate = ({ mainpitch }) => (
           maxWidth: '60rem',
           margin: 'auto',
           padding: 16,
+          marginTop: 32,
         }}
       >
         <h1 className="title">{mainpitch.title}</h1>
