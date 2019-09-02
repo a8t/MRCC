@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-const ButtonLink = styled(Link)`
-  display: inline-block;
+const ButtonLink = styled(Link).attrs(({ isInverted }) => ({
+  className: `button ${isInverted ? 'is-inverted' : ''} is-info`,
+}))`
+  /* display: inline-block;
   padding: 12px 16px 10px;
   font-size: 18px;
   font-size: 1rem;
@@ -19,7 +21,7 @@ const ButtonLink = styled(Link)`
   &:hover {
     background: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.primaryInvert};
-  }
+  } */
 `;
 
 export default ButtonLink;

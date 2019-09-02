@@ -29,27 +29,35 @@ const HeaderContainer = styled.header`
 
   .splash {
     z-index: -1;
+
+    filter: brightness(70%);
   }
 
   section {
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background: rgba(0, 55, 55, 0.4);
     color: white;
-    padding: 3em;
+    padding-top: 1em;
+    padding-bottom: 2em;
     text-align: center;
-    text-wrap: balance;
 
     h1,
     h2 {
-      text-shadow: 4px 4px 6px rgba(55, 12, 12, 0.8);
+      width: 100%;
+      padding: 0.5em 1em;
+    }
+
+    h1 {
+      background: rgba(0, 55, 55, 0.3);
     }
 
     h2 {
       margin-top: 1.5em;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.2em;
     }
   }
 `;
@@ -84,13 +92,15 @@ export default function Header() {
       <Img className="splash" fluid={image.childImageSharp.fluid} alt="MRCC" />
 
       <section>
-        <h1 className="is-size-3-mobile is-size-3-tablet is-size-3-touch is-size-1-desktop is-size-1-widescreen is-size-1-fullhd">
+        <h1 className="is-size-5-mobile is-size-3-tablet is-size-1-desktop">
           {title}
         </h1>
-        <h2 className="is-size-5-mobile is-size-5-tablet is-size-5-touch is-size-5-desktop is-size-5-widescreen is-size-5-fullhd">
+        <h2 className="is-size-6-mobile is-size-4-tablet is-size-4-desktop">
           {subtitle}
         </h2>
-        <ButtonLink to="/campaigns">See our campaigns</ButtonLink>
+        <ButtonLink to="/campaigns" isInverted>
+          See our campaigns →
+        </ButtonLink>
       </section>
     </HeaderContainer>
   );

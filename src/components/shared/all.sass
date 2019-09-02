@@ -1,6 +1,3 @@
-@import "~bulma/sass/utilities/initial-variables"
-@import "~bulma"
-
 @font-face
   font-family: 'De Rotterdam';
   src:  url('../../../static/DeRotterdamDemo-Regular.woff') format('woff');
@@ -16,38 +13,33 @@
   font-weight: normal
 
 
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #005555
-$kaldi-red-invert: #fff
+$mrcc-green: #005555
+$mrcc-green-invert: #fff
+$accent: #ff8506
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: $mrcc-green
+$primary-invert: $mrcc-green-invert
+$invert: #ff8506
 $body-color: #333
 $black: #2b2523
 
 $neutral: #f1f1e6
 $neutral-2: #eefcfc
 $highlight: #00aaad
-$primary-dark: #001514
+$primary-light: lighten($mrcc-green, 10%)
+$primary-dark: darken($mrcc-green, 20%)
 
-body
-  font-family: 'Lato'
+$link: $primary-light
+$info: darken($accent, 8%)
+$footer-background-color: $primary-dark
 
-.line
-  display: inline-block
 
 .has-primary-background
   background-color: rgba($primary, 0.7)
 
-.has-primary-color
-  color: $primary
-
-.has-mrcc-font, nav
+.has-mrcc-font
   font-family: 'De Rotterdam'
 
-.navbar
-  border-bottom: 1px solid $primary
 
 .content .taglist
   list-style: none
@@ -64,69 +56,20 @@ body
     margin-bottom: 1.5rem
     margin-top: 0
 
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 2em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
+// this has to be here
+@import "~bulma/sass/utilities/initial-variables"
+@import "~bulma"
 
-.full-width-image
-    width: 100vw
-    height: 400px
-    background-size: cover
-    background-position: bottom
-    display: flex
-    justify-content: center
-    align-items: center
-
-.btn
-    display: inline-block
-    padding: 12px 16px 10px
-    font-size: 18px
-    font-size: 1rem
-    line-height: 1.25
-    background-color: #fff
-    border-radius: .25rem
-    text-decoration: none
-    font-weight: 700
-    color: #CC3700
-    text-align: center
-    -webkit-box-shadow: inset 0 0 0 2px #CC3700
-    box-shadow: inset 0 0 0 2px #f40
-    -webkit-transition: all .15s ease
-    transition: all .15s ease
-
-.margin-top-0
-  margin-top: 0 !important
-
-.navbar-item .icon
-  color: $primary
-// Override for use of svg's from https://simpleicons.org/
-.icon svg
-  width: 1.5rem
-  height: 1.5rem
-  fill: currentColor
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
-footer.footer
-  padding: 3rem 0rem 0rem
-  background-color: $primary-dark
+body
+  font-family: 'Lato'
 
 //Menu overrides
 $menu-item-color: $white-ter
 $menu-item-hover-color: $black !important
 $menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert
+$menu-item-active-color: $mrcc-green-invert
+$menu-item-active-background-color:	$mrcc-green-invert
+$menu-list-border-left: 1px solid $mrcc-green-invert
 $menu-label-color: $white-ter
 
 
@@ -138,18 +81,6 @@ $menu-label-color: $white-ter
   text-align: left
   a
     color: white
-
-.social
-  padding: 2em
-.social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background-color: $white-ter
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
 
 // blog roll
 .blog-list-item.is-featured
