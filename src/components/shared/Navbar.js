@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import logo from '../../img/mrc_logo_only.svg';
 
 const Nav = styled.nav`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #ff8506;
 
   .navbar-start {
     margin-left: auto;
