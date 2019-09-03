@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Layout from '../../components/shared/Layout';
-import BlogRoll from '../../components/BlogRoll';
+import NewsRoll from '../../components/NewsRoll';
 
 const Header = styled.div`
   width: 100vw;
@@ -19,7 +19,7 @@ const Header = styled.div`
   }
 `;
 
-export default class BlogIndexPage extends React.Component {
+export default class NewsIndexPage extends React.Component {
   render() {
     return (
       <Layout>
@@ -35,7 +35,7 @@ export default class BlogIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <BlogRoll />
+              <NewsRoll />
             </div>
           </div>
         </section>

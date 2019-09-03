@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: news-post
 title: IMPACT Project
 date: 2019-09-02T15:04:10.000Z
 description: >+

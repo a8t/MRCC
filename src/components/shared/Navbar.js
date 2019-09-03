@@ -77,8 +77,8 @@ const Navbar = () => {
           <Link className="navbar-item" to="/">
             Campaigns
           </Link>
-          <Link className="navbar-item" to="/blog">
-            Blog
+          <Link className="navbar-item" to="/news">
+            News
           </Link>
           <Link className="navbar-item" to="/contact">
             Contact

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import BlogRoll from '../components/BlogRoll';
+import NewsRoll from '../components/NewsRoll';
 import Layout from '../components/shared/Layout';
 import ButtonLink from '../components/shared/ButtonLink';
 import IntroBlurbs from '../components/index-page/IntroBlurbs';
@@ -40,8 +40,8 @@ export const IndexPageTemplate = ({ mainpitch }) => (
         }}
       >
         <h1 className="title">Latest stories</h1>
-        <BlogRoll />
-        <ButtonLink to="/blog" style={{ alignSelf: 'center' }}>
+        <NewsRoll />
+        <ButtonLink to="/news" style={{ alignSelf: 'center' }}>
           Read more
         </ButtonLink>
       </section>

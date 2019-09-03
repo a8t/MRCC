@@ -3,7 +3,7 @@ import uploadcare from 'netlify-cms-media-library-uploadcare';
 import cloudinary from 'netlify-cms-media-library-cloudinary';
 
 import MissionPagePreview from './preview-templates/MissionPagePreview';
-import BlogPostPreview from './preview-templates/BlogPostPreview';
+import NewsPostPreview from './preview-templates/NewsPostPreview';
 import IndexPagePreview from './preview-templates/IndexPagePreview';
 
 import withStyledComponentsRendered from './withStyledComponentsRendered';
@@ -20,6 +20,6 @@ CMS.registerPreviewTemplate(
   withStyledComponentsRendered(MissionPagePreview)
 );
 CMS.registerPreviewTemplate(
-  'blog',
-  withStyledComponentsRendered(BlogPostPreview)
+  'news',
+  withStyledComponentsRendered(NewsPostPreview)
 );
