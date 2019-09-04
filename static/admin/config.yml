@@ -9,6 +9,9 @@ collections:
   - name: 'news'
     label: 'News'
     folder: 'src/pages/news'
+    # this is md so that .markdown is ignored
+    # ie .markdown can be used for the index page
+    extension: 'md'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
@@ -85,3 +88,17 @@ collections:
             }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      - file: 'src/pages/news-index.md'
+        label: 'News'
+        name: 'news-index'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'news-index-page',
+            }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: Image, name: image, widget: image }

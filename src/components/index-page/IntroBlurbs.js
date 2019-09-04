@@ -96,7 +96,7 @@ const IntroBlurbs = () => {
   const {
     markdownRemark: {
       frontmatter: {
-        intro: { blurbs, heading },
+        intro: { blurbs },
       },
     },
   } = useStaticQuery(query);
