@@ -12,19 +12,13 @@ import withStyledComponentsRendered from './withStyledComponentsRendered';
 CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
 
-CMS.registerPreviewTemplate(
-  'index',
-  withStyledComponentsRendered(IndexPagePreview)
-);
-CMS.registerPreviewTemplate(
-  'mission',
-  withStyledComponentsRendered(MissionPagePreview)
-);
-CMS.registerPreviewTemplate(
-  'news-index',
-  withStyledComponentsRendered(NewsIndexPagePreview)
-);
-CMS.registerPreviewTemplate(
-  'news',
-  withStyledComponentsRendered(NewsPostPreview)
-);
+const previews = {
+  index: IndexPagePreview,
+  mission: MissionPagePreview,
+  'news-index': NewsIndexPagePreview,
+  news: NewsPostPreview,
+};
+
+Object.entries(previews).forEach(([name, component]) => {
+  CMS.registerPreviewTemplate(name, withStyledComponentsRendered(component));
+});
