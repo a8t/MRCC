@@ -1,6 +1,8 @@
 ---
 templateKey: news-index-page
 title: News
+subtitle:
+image: /img/mrc_01.jpg
 ---
 
 ![]()
