@@ -18,21 +18,7 @@ export const IndexPageTemplate = ({ mainpitch }) => (
           width: '100%',
           maxWidth: '60rem',
           margin: 'auto',
-          padding: 16,
-          marginTop: 32,
-        }}
-      >
-        <h1 className="title">{mainpitch.title}</h1>
-        <h5 className="subtitle">{mainpitch.description}</h5>
-      </section>
-
-      <IntroBlurbs />
-
-      <section
-        style={{
-          width: '100%',
-          maxWidth: '60rem',
-          margin: 'auto',
+          marginTop: 16,
           padding: 16,
           display: 'flex',
           flexDirection: 'column',
@@ -45,6 +31,20 @@ export const IndexPageTemplate = ({ mainpitch }) => (
           Read more
         </ButtonLink>
       </section>
+
+      <section
+        style={{
+          width: '100%',
+          maxWidth: '60rem',
+          margin: 'auto',
+          padding: 16,
+          marginTop: 32,
+        }}
+      >
+        <h1 className="title">{mainpitch.title}</h1>
+        <h5 className="subtitle">{mainpitch.description}</h5>
+      </section>
+      <IntroBlurbs />
     </main>
   </React.Fragment>
 );
