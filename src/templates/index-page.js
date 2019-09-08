@@ -5,7 +5,6 @@ import { graphql } from 'gatsby';
 import NewsRoll from '../components/NewsRoll';
 import Layout from '../components/shared/Layout';
 import ButtonLink from '../components/shared/ButtonLink';
-import IntroBlurbs from '../components/index-page/IntroBlurbs';
 import Header from '../components/index-page/Header';
 
 export const IndexPageTemplate = ({ mainpitch }) => (
@@ -44,7 +43,6 @@ export const IndexPageTemplate = ({ mainpitch }) => (
         <h1 className="title">{mainpitch.title}</h1>
         <h5 className="subtitle">{mainpitch.description}</h5>
       </section>
-      <IntroBlurbs />
     </main>
   </React.Fragment>
 );

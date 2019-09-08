@@ -7,8 +7,6 @@ module.exports = {
       'For the rights and dignity of all migrants working and living in Canada',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -31,6 +29,9 @@ module.exports = {
         name: 'images',
       },
     },
+
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {

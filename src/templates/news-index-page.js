@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Layout from '../components/shared/Layout';
@@ -48,52 +48,59 @@ const Header = styled.header`
   }
 `;
 
-export const NewsIndexPageTemplate = ({ title, subtitle, image }) => (
-  <React.Fragment>
-    <Header>
-      <Img className="splash" fluid={image.childImageSharp.fluid} alt="MRCC" />
-      <section>
-        <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop has-primary-background">
-          Latest Stories
-        </h1>
-      </section>
-    </Header>
-    <section className="section">
-      <div className="container">
-        <div className="content">
-          <NewsRoll />
+export const NewsIndexPageTemplate = ({ title, image }) => {
+  return (
+    <React.Fragment>
+      <Header>
+        <Img
+          className="splash"
+          fluid={image.childImageSharp.fluid}
+          alt="MRCC"
+        />
+        <section>
+          <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop has-primary-background">
+            {title}
+          </h1>
+        </section>
+      </Header>
+      <section className="section">
+        <div className="container">
+          <div className="content">
+            <NewsRoll />
+          </div>
         </div>
-      </div>
-    </section>
-  </React.Fragment>
-);
+      </section>
+    </React.Fragment>
+  );
+};
 
-export default () => {
+export default ({ data }) => {
   const {
     markdownRemark: {
-      frontmatter: { title, subtitle, image },
+      frontmatter: { title, image },
     },
-  } = useStaticQuery(graphql`
-    query NewsIndexPageTemplate {
-      markdownRemark(frontmatter: { templateKey: { eq: "news-index-page" } }) {
-        frontmatter {
-          title
-          subtitle
-          image {
-            childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
+  } = data;
+
+  return (
+    <Layout>
+      <NewsIndexPageTemplate {...{ title, image }} />
+    </Layout>
+  );
+};
+
+export const pageQuery = graphql`
+  query NewsIndexPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "news-index-page" } }) {
+      frontmatter {
+        title
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     }
-  `);
-
-  return (
-    <Layout>
-      <NewsIndexPageTemplate title={title} subtitle={subtitle} image={image} />
-    </Layout>
-  );
-};
+  }
+`;
