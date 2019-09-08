@@ -1,17 +1,15 @@
 ---
 templateKey: news-index-page
-image: /img/mrc_01.jpg
 title: News??
-subtitle: ok?
+image: /img/mrc_01.jpg
 ---
-
-![]()
+![](/img/mrc_01.jpg)
 
 The Migrants Resource Centre Canada aims to improve the lives of migrant and immigrant workers through advancing their rights and dignity while working and living in Canada.
 
 MRCC upholds migrant workers as key actors in the pursuit of this goal. Its role is to assist in capacity building and cooperative action towards full participation into Canadian society.
 
----
+- - -
 
 ## **What we do**
 
