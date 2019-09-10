@@ -6,6 +6,7 @@ import NewsRoll from '../components/NewsRoll';
 import Layout from '../components/shared/Layout';
 import ButtonLink from '../components/shared/ButtonLink';
 import Header from '../components/index-page/Header';
+import IntroBlurbs from '../components/index-page/IntroBlurbs';
 
 export const IndexPageTemplate = ({ mainpitch }) => (
   <React.Fragment>
@@ -17,7 +18,27 @@ export const IndexPageTemplate = ({ mainpitch }) => (
           width: '100%',
           maxWidth: '60rem',
           margin: 'auto',
+          padding: 16,
+          marginTop: 32,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+      >
+        <h1 className="subtitle">{mainpitch.description}</h1>
+        <IntroBlurbs />
+        <ButtonLink to="/mission" style={{ alignSelf: 'center' }}>
+          Our mission
+        </ButtonLink>
+      </section>
+
+      <section
+        style={{
+          width: '100%',
+          maxWidth: '60rem',
+          margin: 'auto',
           marginTop: 16,
+          marginBottom: 32,
           padding: 16,
           display: 'flex',
           flexDirection: 'column',
@@ -29,19 +50,6 @@ export const IndexPageTemplate = ({ mainpitch }) => (
         <ButtonLink to="/news" style={{ alignSelf: 'center' }}>
           Read more
         </ButtonLink>
-      </section>
-
-      <section
-        style={{
-          width: '100%',
-          maxWidth: '60rem',
-          margin: 'auto',
-          padding: 16,
-          marginTop: 32,
-        }}
-      >
-        <h1 className="title">{mainpitch.title}</h1>
-        <h5 className="subtitle">{mainpitch.description}</h5>
       </section>
     </main>
   </React.Fragment>

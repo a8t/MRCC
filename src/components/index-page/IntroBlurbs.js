@@ -28,23 +28,18 @@ const query = graphql`
 `;
 
 const BlurbsContainer = styled.section`
-  /* centers the grid on the page */
-  margin: auto;
-  max-width: 60rem;
-  padding: 16px;
   position: relative;
 
-  /* creates a grid with 3 columns */
   display: grid;
   grid-gap: 16px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto;
   grid-template-areas:
     'blurbs blurbs blurbs'
     '   .     .    button';
 
   .blurb {
-    background: rgba(0, 55, 55, 0.05);
-    border-radius: 8px 32px;
+    background: rgba(0, 55, 55, 0.04);
+    border-radius: 4px 32px;
     padding-top: 16px;
     padding-left: 32px;
     padding-right: 32px;
@@ -68,26 +63,31 @@ const BlurbsContainer = styled.section`
       align-items: center;
     }
   }
+  @media (max-width: 980px) {
+    grid-gap: 8px;
 
-  ${ButtonLink} {
-    margin-left: auto;
-    grid-area: button;
+    .blurb .img-container {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   @media (max-width: 767px) {
-    grid-gap: 16px;
+    /* switch to a single column for mobile */
     grid-template-columns: 1fr;
     grid-template-areas: initial;
+    margin-bottom: 8px;
 
     .blurb {
       text-align: center;
-      padding: 15px;
-      padding-top: 5px;
-      border-radius: 5px;
-    }
+      padding: 16px;
+      padding-top: 8px;
+      border-radius: 4px;
 
-    ${ButtonLink} {
-      grid-area: unset;
+      .img-container {
+        width: 80px;
+        height: 80px;
+      }
     }
   }
 `;
@@ -115,10 +115,6 @@ const IntroBlurbs = () => {
           <p>{text}</p>
         </div>
       ))}
-
-      <ButtonLink className="services-link" to="/mission">
-        See our services →
-      </ButtonLink>
     </BlurbsContainer>
   );
 };
