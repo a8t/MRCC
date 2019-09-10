@@ -72,11 +72,11 @@ const Navbar = () => {
       <div className={`navbar-menu ${navBarActiveClass}`}>
         <div className="navbar-start">
           <Link className="navbar-item" to="/mission">
-            Our mission
+            Mission
           </Link>
-          <Link className="navbar-item" to="/">
+          {/* <Link className="navbar-item" to="/campaigns">
             Campaigns
-          </Link>
+          </Link> */}
           <Link className="navbar-item" to="/news">
             News
           </Link>
