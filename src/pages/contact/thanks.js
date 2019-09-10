@@ -5,9 +5,11 @@ export default () => (
   <Layout>
     <section className="section">
       <div className="container">
-        <div className="content">
+        <div className="content" style={{ minHeight: '50vh' }}>
           <h1>Thank you!</h1>
-          <p>This is a custom thank you page for form submissions</p>
+          <p>
+            We've received your submission and we'll get back to you shortly.
+          </p>
         </div>
       </div>
     </section>
