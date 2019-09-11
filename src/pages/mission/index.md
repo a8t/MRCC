@@ -2,7 +2,7 @@
 templateKey: mission-page
 title: Our Mission
 ---
-![]()
+![](/img/board-of-directors-_2019_2020.jpg)
 
 The Migrants Resource Centre Canada aims to improve the lives of migrant and immigrant workers through advancing their rights and dignity while working and living in Canada.
 
@@ -10,7 +10,7 @@ MRCC upholds migrant workers as key actors in the pursuit of this goal. Its role
 
 - - -
 
-## **What we do** 
+## **What we do**
 
 **Information and Referral** 
 
