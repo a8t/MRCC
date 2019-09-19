@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import logo from '../../img/mrc_logo_only.svg';
+import Logo from './Logo';
 
 const Nav = styled.nav`
   border-bottom: 2px solid #ff8506;
@@ -12,26 +12,15 @@ const Nav = styled.nav`
   }
 `;
 
-const Logo = styled(Link)`
-  img {
-    width: 100px;
-  }
-
-  span {
-    font-size: 14px;
-    padding-left: 4px;
-    line-height: 1em;
+const LogoContainer = styled(Link)`
+  .logo {
+    width: 200px;
   }
 
   @media (min-width: 1024px) {
-    img {
+    .logo {
       max-height: unset !important;
-      width: 140px;
-    }
-
-    span {
-      padding-left: 8px;
-      font-size: 18px;
+      width: 300px;
     }
   }
 `;
@@ -52,12 +41,9 @@ const Navbar = () => {
       aria-label="main-navigation"
     >
       <div className="navbar-brand">
-        <Logo to="/" className="navbar-item" title="MRCC logo">
-          <img src={logo} alt="MRCC" />
-          <span className="has-mrcc-font">
-            Migrants Resource <br></br>Centre Canada
-          </span>
-        </Logo>
+        <LogoContainer to="/" className="navbar-item" title="MRCC logo">
+          <Logo className="logo" fullNamePosition="right" />
+        </LogoContainer>
         {/* Hamburger menu */}
         <div
           className={`navbar-burger burger ${navBarActiveClass}`}
@@ -71,16 +57,16 @@ const Navbar = () => {
       </div>
       <div className={`navbar-menu ${navBarActiveClass}`}>
         <div className="navbar-start">
-          <Link className="navbar-item" to="/mission">
+          <Link className="navbar-item is-size-5" to="/mission">
             Mission
           </Link>
           {/* <Link className="navbar-item" to="/campaigns">
             Campaigns
           </Link> */}
-          <Link className="navbar-item" to="/news">
+          <Link className="navbar-item is-size-5" to="/news">
             News
           </Link>
-          <Link className="navbar-item" to="/contact">
+          <Link className="navbar-item is-size-5" to="/contact">
             Contact
           </Link>
         </div>

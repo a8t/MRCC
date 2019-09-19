@@ -33,6 +33,19 @@ $link: $primary-light
 $info: darken($accent, 8%)
 $footer-background-color: $primary-dark
 
+.is-link
+  color: $primary-dark
+  fill: $primary-dark
+  &.has-light-text
+    color: $neutral
+    fill: $neutral
+  a:hover &
+    color: $link
+    fill: $link
+    &.has-light-text
+      color: $primary-light
+      fill: $primary-light
+
 
 .has-primary-background
   background-color: rgba($primary, 0.7)
