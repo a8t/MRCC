@@ -13,7 +13,10 @@ const TemplateWrapper = ({ children }) => {
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <Helmet>
-          <html lang="en" className="has-navbar-fixed-top" />
+          <html
+            lang="en"
+            className="has-navbar-fixed-top has-spaced-navbar-fixed-top"
+          />
           <title>{title}</title>
           <meta name="description" content={description} />
 
