@@ -58,7 +58,10 @@ const Navbar = () => {
       <div className={`navbar-menu ${navBarActiveClass}`}>
         <div className="navbar-start">
           <Link className="navbar-item is-size-5" to="/mission">
-            Mission
+            Our Mission
+          </Link>
+          <Link className="navbar-item is-size-5" to="/team">
+            Our Team
           </Link>
           {/* <Link className="navbar-item" to="/campaigns">
             Campaigns
