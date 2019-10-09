@@ -30,8 +30,8 @@ export default function Index() {
     // yes the markup makes me sad but that's how this css framework works :/
     <Layout>
       <section
-        className="section content"
-        style={{ maxWidth: '60em', margin: 'auto' }}
+        className="content"
+        style={{ maxWidth: '60em', margin: 'auto', padding: '8vmin' }}
       >
         <h1>Contact</h1>
         <form
