@@ -38,8 +38,13 @@ const Main = styled.main`
 
       .staff-card__info {
         padding: 16px;
-        display: block;
+        display: flex;
+        flex-direction: column;
         grid-area: info;
+
+        .staff-card__email {
+          margin-top: auto;
+        }
       }
     }
   }
@@ -68,7 +73,9 @@ export const TeamPageTemplate = ({
               <p className="title is-4">{name}</p>
               <p className="subtitle is-6">{title}</p>
               <p className="content">{text}</p>
-              <a href={`mailto:${email}`}>{email}</a>
+              <a className="staff-card__email" href={`mailto:${email}`}>
+                {email}
+              </a>
             </section>
           </article>
         ))}
