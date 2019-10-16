@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Layout from '../components/shared/Layout';
 import Content, { HTMLContent } from '../components/shared/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Main = styled.main`
   margin: auto;
