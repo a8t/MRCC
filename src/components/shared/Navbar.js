@@ -25,6 +25,12 @@ const LogoContainer = styled(Link)`
   }
 `;
 
+const NavbarLink = ({ to, children }) => (
+  <Link to={to} className="navbar-item is-size-5">
+    {children}
+  </Link>
+);
+
 const Navbar = () => {
   const [active, setActive] = useState(false);
 
@@ -57,21 +63,11 @@ const Navbar = () => {
       </div>
       <div className={`navbar-menu ${navBarActiveClass}`}>
         <div className="navbar-start">
-          <Link className="navbar-item is-size-5" to="/mission">
-            Our Mission
-          </Link>
-          <Link className="navbar-item is-size-5" to="/team">
-            Our Team
-          </Link>
-          {/* <Link className="navbar-item" to="/campaigns">
-            Campaigns
-          </Link> */}
-          <Link className="navbar-item is-size-5" to="/news">
-            News
-          </Link>
-          <Link className="navbar-item is-size-5" to="/contact">
-            Contact
-          </Link>
+          <NavbarLink to="/mission">Our Mission</NavbarLink>
+          <NavbarLink to="/team">Our Team</NavbarLink>
+          {/* <NavbarLink to="/campaigns">Campaigns</NavbarLink> */}
+          <NavbarLink to="/news">News</NavbarLink>
+          <NavbarLink to="/contact">Contact</NavbarLink>
         </div>
       </div>
     </Nav>
