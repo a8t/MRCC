@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 
 import Layout from '../components/shared/Layout';
 import NewsRoll from '../components/NewsRoll';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 const Header = styled.header`
   display: grid;
@@ -52,10 +53,9 @@ export const NewsIndexPageTemplate = ({ title, image }) => {
   return (
     <React.Fragment>
       <Header>
-        <Img
+        <PreviewCompatibleImage
           className="splash"
-          fluid={image.childImageSharp.fluid}
-          alt="MRCC"
+          imageInfo={{ image, alt: 'MRCC' }}
         />
         <section>
           <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop has-primary-background">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import PreviewCompatibleImage from '../PreviewCompatibleImage';
 import styled from 'styled-components';
 import ButtonLink from '../shared/ButtonLink';
 
@@ -105,9 +105,9 @@ const IntroBlurbs = () => {
     <BlurbsContainer>
       {blurbs.map(({ image, title, text }) => (
         <div className="blurb" key={text}>
-          <Img
+          <PreviewCompatibleImage
             className="img-container"
-            fluid={image.childImageSharp.fluid}
+            imageInfo={image}
             imgStyle={{ objectFit: 'contain' }}
             alt={text}
           />
