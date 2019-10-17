@@ -18,33 +18,56 @@ const Main = styled.main`
     .staff-card {
       margin-bottom: 32px;
       display: grid;
+      padding: 16px;
       gap: 16px;
       grid-template-rows: auto;
-      grid-template-columns: 200px 1fr;
-      grid-template-areas: 'img info';
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'img'
+        'info'
+        'description-paragraph';
 
-      @media (max-width: 600px) {
+      @media (min-width: 600px) {
+        padding: 32px;
+        gap: 32px;
         grid-template-areas:
-          'img'
-          'info';
+          'img                    info'
+          'description-paragraph  description-paragraph';
 
         grid-template-rows: auto;
         grid-template-columns: 1fr;
       }
 
+      @media (min-width: 900px) {
+        padding: 32px;
+        gap: 32px;
+        grid-template-areas:
+          'img     description-paragraph'
+          'info    description-paragraph';
+
+        grid-template-rows: 250px;
+        grid-template-columns: 250px 1fr;
+      }
+
       .staff-card__image {
         grid-area: img;
+        height: 250px;
+        width: 100%;
+      }
+
+      .staff-card__description {
+        grid-area: description-paragraph;
+        white-space: pre-wrap;
       }
 
       .staff-card__info {
-        padding: 16px;
+        grid-area: info;
         display: flex;
         flex-direction: column;
-        grid-area: info;
+      }
 
-        .staff-card__email {
-          margin-top: auto;
-        }
+      .staff-card__email {
+        /* margin-top: auto; */
       }
     }
   }
@@ -72,11 +95,11 @@ export const TeamPageTemplate = ({
             <section className="staff-card__info">
               <p className="title is-4">{name}</p>
               <p className="subtitle is-6">{title}</p>
-              <p className="content">{text}</p>
               <a className="staff-card__email" href={`mailto:${email}`}>
                 {email}
               </a>
             </section>
+            <p className="content staff-card__description">{text}</p>
           </article>
         ))}
       </section>
