@@ -13,6 +13,7 @@ const PreviewCompatibleImage = ({
   if (!!image && !!image.childImageSharp) {
     return (
       <Img
+        className={className}
         imgStyle={imgStyle}
         fluid={image.childImageSharp.fluid}
         alt={alt}
