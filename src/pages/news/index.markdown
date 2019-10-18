@@ -1,6 +1,7 @@
 ---
 templateKey: news-index-page
 title: 'News & Events '
-image: /img/20190515_121428_0000.png
+image: /img/mrc_01.jpg
 ---
+
 Current and past events
