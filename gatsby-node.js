@@ -18,6 +18,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               tags
               templateKey
+              gallery
             }
           }
         }
@@ -31,17 +32,17 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges;
 
-    posts.forEach(edge => {
-      const id = edge.node.id;
+    posts.forEach(({ node: { id, fields, frontmatter } }) => {
       createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
+        path: fields.slug,
+        tags: frontmatter.tags,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
         context: {
           id,
+          gallery: frontmatter.gallery,
         },
       });
     });
