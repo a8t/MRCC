@@ -67,6 +67,7 @@ const Navbar = () => {
           <NavbarLink to="/team">Our Team</NavbarLink>
           {/* <NavbarLink to="/campaigns">Campaigns</NavbarLink> */}
           <NavbarLink to="/news">News</NavbarLink>
+          <NavbarLink to="/gallery">Gallery</NavbarLink>
           <NavbarLink to="/contact">Contact</NavbarLink>
         </div>
       </div>
