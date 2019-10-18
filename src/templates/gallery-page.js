@@ -21,6 +21,7 @@ const Template = styled.section`
       grid-column: span 2;
       grid-row: span 1;
     }
+
     @media (min-width: 479px) {
       grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
       grid-auto-flow: dense;
@@ -88,14 +89,7 @@ const GalleryPage = ({ data }) => {
     allFile: { edges: galleryNodes },
   } = data;
 
-  const { title, subtitle, description, tags, mainPhotoBase } = frontmatter;
-
-  const mainPhoto = galleryNodes.find(
-    ({ node: { base } }) => base === mainPhotoBase
-  );
-  const galleryPhotos = galleryNodes.filter(
-    ({ node: { base } }) => base !== mainPhoto
-  );
+  const { title, subtitle, description, tags, mainPhoto } = frontmatter;
 
   return (
     <Layout>
@@ -106,10 +100,7 @@ const GalleryPage = ({ data }) => {
         </Helmet>
 
         <Header>
-          <Img
-            className="splash"
-            fluid={mainPhoto.node.childImageSharp.fluid}
-          />
+          <Img className="splash" fluid={mainPhoto.childImageSharp.fluid} />
           <section className="header-text has-primary-background">
             <div>
               <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop ">
@@ -124,7 +115,7 @@ const GalleryPage = ({ data }) => {
         </Header>
 
         <section className="gallery-images">
-          {galleryPhotos.map(({ node }) => (
+          {galleryNodes.map(({ node }) => (
             <Img
               className="gallery-image"
               fixed={node.childImageSharp.fixed}
@@ -167,7 +158,16 @@ export const pageQuery = graphql`
         gallery
         title
         subtitle
-        mainPhotoBase
+        mainPhoto {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+            fixed(width: 500, height: 300) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
         tags
       }
     }
