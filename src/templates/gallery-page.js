@@ -9,8 +9,73 @@ import Layout from '../components/shared/Layout';
 import Content, { HTMLContent } from '../components/shared/Content';
 
 const Template = styled.section`
+  --content-padding: 16px;
+
+  @media screen and (min-width: 479px) {
+    --content-padding: 32px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    --content-padding: 5vw;
+  }
+
+  .gallery-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'header-items';
+    height: 80vh;
+
+    @media screen and (min-width: 479px) {
+      height: 50vh;
+    }
+
+    .gallery-header__splash,
+    .gallery-header__overlay,
+    .gallery-header__text {
+      grid-area: header-items;
+    }
+
+    .gallery-header__splash {
+      z-index: -1;
+      filter: brightness(0.7);
+    }
+
+    .gallery-header__text {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+      text-align: left;
+      padding: var(--content-padding);
+
+      > * {
+        max-width: 35em;
+      }
+
+      .gallery-header__description {
+        margin-top: 16px;
+        p {
+          margin: 8px 0;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 64px;
+        padding-top: 128px;
+        width: 100%;
+
+        .gallery-header__description {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+
   .gallery-images {
-    margin-top: 64px;
     display: grid;
     gap: 4px;
     grid-template-columns: 1fr;
@@ -23,61 +88,12 @@ const Template = styled.section`
     }
 
     @media (min-width: 479px) {
+      padding: var(--content-padding);
       grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
       grid-auto-flow: dense;
-      .gallery-image:nth-child(4n - 3) {
+      .gallery-image:nth-child(8n - 7) {
         grid-column: span 2;
         grid-row: span 2;
-      }
-    }
-  }
-`;
-
-const Header = styled.header`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: 'both-items';
-
-  .splash,
-  .header-text {
-    grid-area: both-items;
-    height: 50vh;
-    object-fit: cover;
-    object-position: 50% 20%;
-  }
-
-  @media screen and (min-width: 1024px) {
-    .splash,
-    .header-text {
-      height: 70vh;
-      width: 100%;
-    }
-  }
-
-  .splash {
-    z-index: -1;
-    filter: brightness(0.7);
-  }
-
-  .header-text {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: left;
-    padding: 32px;
-
-    > * {
-      max-width: 40em;
-    }
-
-    .description {
-      margin-top: 16px;
-      p {
-        margin: 8px 0;
       }
     }
   }
@@ -93,26 +109,34 @@ const GalleryPage = ({ data }) => {
 
   return (
     <Layout>
-      <Template className="section">
+      <Template>
         <Helmet titleTemplate="%s | Gallery">
           <title>{`${title}`}</title>
           <meta name="description" content={`${description}`} />
         </Helmet>
 
-        <Header>
-          <Img className="splash" fluid={mainPhoto.childImageSharp.fluid} />
-          <section className="header-text has-primary-background">
+        <header className="gallery-header">
+          <Img
+            className="gallery-header__splash"
+            fluid={mainPhoto.childImageSharp.fluid}
+            imgStyle={{ objectPosition: '50% 30%' }}
+          />
+          <div className="gallery-header__overlay has-primary-background"></div>
+          <section className="gallery-header__text">
             <div>
-              <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop ">
+              <h1 className="has-text-weight-bold is-size-4-mobile is-size-3-tablet is-size-1-desktop ">
                 {title}
               </h1>
-              <h2 className="is-size-6-mobile is-size-4-tablet is-size-4-desktop">
+              <h2 className="is-size-5-mobile is-size-4-tablet is-size-4-desktop">
                 {subtitle}
               </h2>
-              <HTMLContent className="description" content={html} />
             </div>
+            <HTMLContent
+              className="gallery-header__description"
+              content={html}
+            />
           </section>
-        </Header>
+        </header>
 
         <section className="gallery-images">
           {galleryNodes.map(({ node }) => (
