@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import FsLightbox from 'fslightbox-react';
 import Layout from '../components/shared/Layout';
 import Content, { HTMLContent } from '../components/shared/Content';
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import Lightbox from 'react-image-lightbox';
 
 const Template = styled.section`
   --content-padding: 16px;
@@ -118,16 +120,17 @@ const GalleryPage = ({ data }) => {
     gallery,
   } = frontmatter;
 
-  const lightboxImages = galleryNodes.map(
-    ({ node }) => node.childImageSharp.fluid.src
+  const srcSet = galleryNodes.map(
+    ({ node }) => node.childImageSharp.original.src
   );
-
-  const [toggler, setToggler] = useState(false);
-  const [imageIndex, setImageIndex] = useState(0);
-
-  const openLightbox = imageIndex => {
-    setImageIndex(imageIndex + 1);
-    setToggler(!toggler);
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const nextIndex = (photoIndex + 1) % srcSet.length;
+  const prevIndex = (photoIndex + srcSet.length - 1) % srcSet.length;
+  const selectImg = index => {
+    setPhotoIndex(index);
+    setIsOpen(true);
+    // set focus here
   };
 
   return (
@@ -141,13 +144,11 @@ const GalleryPage = ({ data }) => {
           <meta property="og:image" content={mainPhoto.childImageSharp.src} />
           <meta property="og:url" content={`/galleries/${gallery}`} />
           <meta name="twitter:card" content="summary_large_image" />
-
           <meta
             property="og:site_name"
             content="Migrants Resource Centre Canada"
           />
           <meta name="twitter:image:alt" content={title} />
-
           <meta name="twitter:site" content="@mrccanada" />
         </Helmet>
 
@@ -181,16 +182,21 @@ const GalleryPage = ({ data }) => {
               className="gallery-image"
               fixed={node.childImageSharp.fixed}
               style={{ width: 'unset', height: 'unset' }}
-              onClick={() => openLightbox(i)}
+              onClick={() => selectImg(i)}
             />
           ))}
         </section>
 
-        <FsLightbox
-          toggler={toggler}
-          sources={lightboxImages}
-          slide={imageIndex}
-        />
+        {isOpen && (
+          <Lightbox
+            mainSrc={srcSet[photoIndex]}
+            nextSrc={srcSet[nextIndex]}
+            prevSrc={srcSet[prevIndex]}
+            onCloseRequest={() => setIsOpen(false)}
+            onMovePrevRequest={() => setPhotoIndex(prevIndex)}
+            onMoveNextRequest={() => setPhotoIndex(nextIndex)}
+          />
+        )}
 
         {tags && tags.length ? (
           <div style={{ marginTop: `4rem` }}>
@@ -248,6 +254,9 @@ export const pageQuery = graphql`
           base
           childImageSharp {
             id
+            original {
+              src
+            }
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
             }
