@@ -1,8 +1,8 @@
 ---
 templateKey: gallery-page
 gallery: impact-workshop-1
-title: 'IMPACT Workshop 1'
-subtitle: 'Canadian Immigration Policy and Labour Laws'
+title: 'Canadian Immigration Policy and Labour Laws'
+subtitle: 'IMPACT Workshop, October 8 2019'
 mainPhoto: /galleries/impact-workshop-1/IMG_0349.jpg
 date: 2019-10-08T15:04:10.000Z
 ---
