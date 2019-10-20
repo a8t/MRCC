@@ -18,8 +18,8 @@ const query = graphql`
             subtitle
             mainPhoto {
               childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 225) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
@@ -72,7 +72,7 @@ export default function GalleryPage() {
                   <Link to={`/gallery/${gallery}`}>
                     <Img
                       className="card-image"
-                      fluid={mainPhoto.childImageSharp.fluid}
+                      fixed={mainPhoto.childImageSharp.fixed}
                     />
                     <div className="card-content">
                       <p class="title is-4">{title}</p>
