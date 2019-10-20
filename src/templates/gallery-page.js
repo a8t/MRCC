@@ -109,7 +109,14 @@ const GalleryPage = ({ data }) => {
     allFile: { edges: galleryNodes },
   } = data;
 
-  const { title, subtitle, description, tags, mainPhoto } = frontmatter;
+  const {
+    title,
+    subtitle,
+    description,
+    tags,
+    mainPhoto,
+    gallery,
+  } = frontmatter;
 
   const lightboxImages = galleryNodes.map(
     ({ node }) => node.childImageSharp.fluid.src
@@ -126,9 +133,22 @@ const GalleryPage = ({ data }) => {
   return (
     <Layout>
       <Template>
-        <Helmet titleTemplate="%s | Gallery">
+        <Helmet titleTemplate="%s | MRCC Gallery">
           <title>{`${title}`}</title>
           <meta name="description" content={`${description}`} />
+          <meta property="og:title" content={`${title} | MRCC Gallery`} />
+          <meta property="og:description" content={subtitle} />
+          <meta property="og:image" content={mainPhoto.childImageSharp.src} />
+          <meta property="og:url" content={`/galleries/${gallery}`} />
+          <meta name="twitter:card" content="summary_large_image" />
+
+          <meta
+            property="og:site_name"
+            content="Migrants Resource Centre Canada"
+          />
+          <meta name="twitter:image:alt" content={title} />
+
+          <meta name="twitter:site" content="@mrccanada" />
         </Helmet>
 
         <header className="gallery-header">
@@ -210,9 +230,6 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
-            }
-            fixed(width: 500, height: 300) {
-              ...GatsbyImageSharpFixed
             }
           }
         }
