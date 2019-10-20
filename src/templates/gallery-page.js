@@ -29,7 +29,7 @@ const Template = styled.section`
     height: 80vh;
 
     @media screen and (min-width: 479px) {
-      height: 50vh;
+      height: 60vh;
     }
 
     .gallery-header__splash,
@@ -63,11 +63,15 @@ const Template = styled.section`
         }
       }
 
+      @media screen and (min-width: 479px) and (max-width: 1023px) {
+        margin-top: -128px;
+      }
+
       @media screen and (min-width: 1024px) {
+        padding-top: 128px;
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 64px;
-        padding-top: 128px;
         width: 100%;
 
         .gallery-header__description {
@@ -78,6 +82,7 @@ const Template = styled.section`
   }
 
   .gallery-images {
+    background: white;
     display: grid;
     gap: 4px;
     grid-template-columns: 1fr;
@@ -93,7 +98,11 @@ const Template = styled.section`
     }
 
     @media (min-width: 479px) {
-      padding: var(--content-padding);
+      padding: 4px;
+      margin-top: -128px !important;
+      box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19),
+        0 12px 15px 0 rgba(0, 0, 0, 0.24);
+      margin: var(--content-padding);
       grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
       grid-auto-flow: dense;
       .gallery-image:nth-child(8n - 7) {
@@ -159,7 +168,7 @@ const GalleryPage = ({ data }) => {
           />
           <div className="gallery-header__overlay has-primary-background"></div>
           <section className="gallery-header__text">
-            <div>
+            <div className="gallery-header__description">
               <h1 className="has-text-weight-bold is-size-4-mobile is-size-3-tablet is-size-1-desktop ">
                 {title}
               </h1>
@@ -174,7 +183,7 @@ const GalleryPage = ({ data }) => {
           </section>
         </header>
 
-        <section className="gallery-images">
+        <section className="gallery-images card">
           {galleryNodes.map(({ node }, i) => (
             <Img
               key={node.childImageSharp.id}
