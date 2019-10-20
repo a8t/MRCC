@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import FsLightbox from 'fslightbox-react';
-import Layout from '../components/shared/Layout';
-import Content, { HTMLContent } from '../components/shared/Content';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import Layout from '../components/shared/Layout';
+import { HTMLContent } from '../components/shared/Content';
 
 const Template = styled.section`
   --content-padding: 16px;
