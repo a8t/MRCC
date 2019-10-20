@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import FsLightbox from 'fslightbox-react';
 import Layout from '../components/shared/Layout';
 import Content, { HTMLContent } from '../components/shared/Content';
 
@@ -82,9 +83,12 @@ const Template = styled.section`
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(200px, auto);
 
-    .gallery-image:nth-child(3n - 2) {
-      grid-column: span 2;
-      grid-row: span 1;
+    .gallery-image {
+      cursor: pointer;
+      &:nth-child(3n - 2) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
     }
 
     @media (min-width: 479px) {
@@ -106,6 +110,18 @@ const GalleryPage = ({ data }) => {
   } = data;
 
   const { title, subtitle, description, tags, mainPhoto } = frontmatter;
+
+  const lightboxImages = galleryNodes.map(
+    ({ node }) => node.childImageSharp.fluid.src
+  );
+
+  const [toggler, setToggler] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const openLightbox = imageIndex => {
+    setImageIndex(imageIndex + 1);
+    setToggler(!toggler);
+  };
 
   return (
     <Layout>
@@ -139,14 +155,22 @@ const GalleryPage = ({ data }) => {
         </header>
 
         <section className="gallery-images">
-          {galleryNodes.map(({ node }) => (
+          {galleryNodes.map(({ node }, i) => (
             <Img
+              key={node.childImageSharp.id}
               className="gallery-image"
               fixed={node.childImageSharp.fixed}
               style={{ width: 'unset', height: 'unset' }}
+              onClick={() => openLightbox(i)}
             />
           ))}
         </section>
+
+        <FsLightbox
+          toggler={toggler}
+          sources={lightboxImages}
+          slide={imageIndex}
+        />
 
         {tags && tags.length ? (
           <div style={{ marginTop: `4rem` }}>
@@ -206,6 +230,7 @@ export const pageQuery = graphql`
         node {
           base
           childImageSharp {
+            id
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
             }
