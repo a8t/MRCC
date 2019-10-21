@@ -1,6 +1,7 @@
 ---
 templateKey: mission-page
 title: Our Mission
+image: /img/smiling.jpg
 ---
 
 <!-- ![](/img/board-of-directors-_2019_2020.jpg) -->
