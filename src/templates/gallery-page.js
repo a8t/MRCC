@@ -38,7 +38,7 @@ const Template = styled.section`
 
     .gallery-header__splash {
       z-index: -1;
-      filter: brightness(0.4) blur(5px);
+      filter: brightness(0.4) blur(3px);
       margin: 2px -10px;
       overflow: hidden;
     }
