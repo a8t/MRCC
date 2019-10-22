@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import PreviewCompatibleImage from '../PreviewCompatibleImage';
 import styled from 'styled-components';
-import ButtonLink from '../shared/ButtonLink';
 
 const query = graphql`
   query IntroBlurbsQuery {
