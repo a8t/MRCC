@@ -31,6 +31,16 @@ staff:
       Currently, she also works as a part-time Community Program Worker for SEAS Centre, a multi-social service agency in the GTA. She also serves as Acting Chair of GABRIELA Ontario, a volunteer Filipino women's organization working on campaigns to end violence against women and to uphold the rights of Filipino women and children.
 ---
 
-## Board of Directors
+## Our Board of Directors
 
-![](/img/board-of-directors-_2019_2020.jpg)
+![Board of Directors](/img/board-of-directors-_2019_2020.jpg)
+
+Our Board of Directors, from left to right:
+
+- Dr. Ethel Tungohan (Vice Chair)
+- Andrea Bobadilla
+- Atty. Petra Molnar (Secretary)
+- Bern Jagunos (Chair)
+- Jesson Reyes (Managing Director)
+- Mithi Esguerra (Program Coordinator)
+- Maria Sol Pajadura (Treasurer)
