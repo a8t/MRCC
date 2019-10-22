@@ -38,7 +38,7 @@ const BlurbsContainer = styled.section`
 
   .blurb {
     background: rgba(0, 55, 55, 0.04);
-    border-radius: 4px 32px;
+    border-radius: 4px 16px;
     padding-top: 16px;
     padding-left: 32px;
     padding-right: 32px;
@@ -103,7 +103,7 @@ const IntroBlurbs = () => {
   return (
     <BlurbsContainer>
       {blurbs.map(({ image, title, text }) => (
-        <div className="blurb" key={text}>
+        <div className="card blurb" key={text}>
           <PreviewCompatibleImage
             className="img-container"
             imageInfo={image}
