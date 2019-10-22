@@ -15,7 +15,7 @@ intro:
       text: >-
         Education to develop capacity of people’s movements and workers
         associations.
-      title: Education and Workshops
+      title: Education and Training
     - image: /img/research.png
       text: >-
         Free, up to date information about labor, immigration, and social
@@ -28,4 +28,3 @@ intro:
       title: Research and Advocacy
   heading: What we do
 ---
-

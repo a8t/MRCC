@@ -25,11 +25,14 @@ const LogoContainer = styled(Link)`
   }
 `;
 
-const NavbarLink = ({ to, children }) => (
-  <Link to={to} className="navbar-item is-size-5">
-    {children}
-  </Link>
-);
+const NavbarLink = ({ to, children }) =>
+  to ? (
+    <Link to={to} className="navbar-item is-size-5">
+      {children}
+    </Link>
+  ) : (
+    <span className="navbar-item is-size-5">{children}</span>
+  );
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -63,9 +66,28 @@ const Navbar = () => {
       </div>
       <div className={`navbar-menu ${navBarActiveClass}`}>
         <div className="navbar-start">
-          <NavbarLink to="/mission">Our Mission</NavbarLink>
-          <NavbarLink to="/team">Our Team</NavbarLink>
-          {/* <NavbarLink to="/campaigns">Campaigns</NavbarLink> */}
+          <div class="navbar-item has-dropdown is-hoverable">
+            <NavbarLink>About</NavbarLink>
+            <div class="navbar-dropdown">
+              <NavbarLink to="/mission">Our Mission</NavbarLink>
+              <NavbarLink to="/team">Our Team</NavbarLink>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <NavbarLink to="/programs">Programs</NavbarLink>
+            <div class="navbar-dropdown">
+              <NavbarLink to="/programs/education-and-training">
+                Education and Training
+              </NavbarLink>
+              <NavbarLink to="/programs/information-and-referral">
+                Information and Referral
+              </NavbarLink>
+              <NavbarLink to="/programs/research-and-advocacy">
+                Research and Advocacy
+              </NavbarLink>
+            </div>
+          </div>
           <NavbarLink to="/news">News</NavbarLink>
           <NavbarLink to="/gallery">Gallery</NavbarLink>
           <NavbarLink to="/contact">Contact</NavbarLink>
