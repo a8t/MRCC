@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import PreviewCompatibleImage from '../PreviewCompatibleImage';
 import styled from 'styled-components';
 
@@ -19,6 +19,7 @@ const query = graphql`
             }
             title
             text
+            link
           }
         }
       }
@@ -37,7 +38,7 @@ const BlurbsContainer = styled.section`
     '   .     .    button';
 
   .blurb {
-    background: rgba(0, 55, 55, 0.04);
+    background: #f5f5f5;
     border-radius: 4px 16px;
     padding-top: 16px;
     padding-left: 32px;
@@ -48,6 +49,11 @@ const BlurbsContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    :hover {
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.19),
+        0 3px 5px 0 rgba(0, 0, 0, 0.24);
+    }
 
     h3 {
       font-weight: 800;
@@ -102,8 +108,8 @@ const IntroBlurbs = () => {
 
   return (
     <BlurbsContainer>
-      {blurbs.map(({ image, title, text }) => (
-        <div className="card blurb" key={text}>
+      {blurbs.map(({ image, title, text, link }) => (
+        <Link to={link} className="card blurb" key={text}>
           <PreviewCompatibleImage
             className="img-container"
             imageInfo={image}
@@ -112,7 +118,7 @@ const IntroBlurbs = () => {
           />
           <h3>{title}</h3>
           <p>{text}</p>
-        </div>
+        </Link>
       ))}
     </BlurbsContainer>
   );
