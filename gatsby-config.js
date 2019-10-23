@@ -75,6 +75,8 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
@@ -83,8 +85,6 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-catch-links`,
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying

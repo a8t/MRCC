@@ -50,6 +50,25 @@ const TemplateWrapper = ({ children }) => {
           <meta property="og:title" content={title} />
           <meta property="og:url" content="/" />
           <meta property="og:image" content="/img/og-image.jpg" />
+
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=UA-150754711-1"
+              ></script>
+
+              <script>
+                {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-150754711-1');
+                `}
+              </script>
+            </>
+          )}
         </Helmet>
         <Navbar />
         {children}
