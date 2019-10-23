@@ -78,16 +78,7 @@ export const NewsPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content;
 
-  const {
-    featuredImage,
-    title,
-    date,
-    description,
-    featuredpost,
-    featuredimage,
-    location,
-    tags,
-  } = frontMatter;
+  const { title, date, featuredimage, location, tags } = frontMatter;
 
   return (
     <Main>
