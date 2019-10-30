@@ -1,11 +1,12 @@
 ---
 templateKey: news-post
-title: Temporary Foreign Workers’ Rights Discussed Ahead of Canada’s Federal Elections
-date: 2019-09-11T00:55:14.663Z
+title: >-
+  Temporary Foreign Workers’ Rights Discussed Ahead of Canada’s Federal
+  Elections
+date: 2019-10-12T00:55:14.663Z
 description: Re post from Balitang America. Published by Christine Santos
 featuredpost: true
 featuredimage: /img/72333254_2680940595291633_68978854105972736_o.jpg
-location: Toronto
 tags:
   - impact
 ---
