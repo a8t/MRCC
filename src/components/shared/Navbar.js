@@ -5,10 +5,33 @@ import Logo from './Logo';
 
 const Nav = styled.nav`
   border-bottom: 2px solid #ff8506;
+  .navbar-brand {
+    flex-grow: 1;
+  }
 
+  .navbar-menu {
+    flex-grow: 0;
+  }
   .navbar-start {
     margin-left: auto;
     margin-right: unset;
+  }
+
+  .burger {
+    margin-left: 16px;
+  }
+
+  .donate-button {
+    box-sizing: margin-box;
+    margin: 4px 0;
+    border-radius: 4px;
+    margin-left: auto;
+    /* background: green; */
+    color: white;
+    &:hover {
+      color: white;
+      background: rgba(0, 85, 85, 0.9) !important;
+    }
   }
 `;
 
@@ -25,9 +48,9 @@ const LogoContainer = styled(Link)`
   }
 `;
 
-const NavbarLink = ({ to, children }) =>
+const NavbarLink = ({ to, children, className }) =>
   to ? (
-    <Link to={to} className="navbar-item is-size-5">
+    <Link to={to} className={`navbar-item is-size-5 ${className}`}>
       {children}
     </Link>
   ) : (
@@ -54,6 +77,14 @@ const Navbar = () => {
           <Logo className="logo" fullNamePosition="right" />
         </LogoContainer>
         {/* Hamburger menu */}
+
+        <NavbarLink
+          className="donate-button has-primary-background"
+          to="/donate"
+        >
+          Donate
+        </NavbarLink>
+
         <div
           className={`navbar-burger burger ${navBarActiveClass}`}
           data-target="navMenu"
@@ -73,7 +104,6 @@ const Navbar = () => {
               <NavbarLink to="/team">Our Team</NavbarLink>
             </div>
           </div>
-
           <div class="navbar-item has-dropdown is-hoverable">
             <NavbarLink to="/programs">Programs</NavbarLink>
             <div class="navbar-dropdown">
