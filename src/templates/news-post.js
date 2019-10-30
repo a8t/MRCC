@@ -54,6 +54,7 @@ const Main = styled.main`
       margin: auto;
       margin-top: -30vh;
       margin-bottom: 64px;
+      max-width: 50em;
     }
 
     display: flex;
@@ -61,6 +62,24 @@ const Main = styled.main`
 
     .news-post__title {
       line-height: 1.1em;
+      text-align: center;
+      white-space: pre-line;
+      letter-spacing: -1.5px;
+
+      @media (min-width: 479px) {
+        margin-bottom: 16px;
+      }
+
+      @media (min-width: 767px) {
+        margin-bottom: 32px;
+      }
+    }
+
+    .news-post__subtitle {
+      white-space: pre-line;
+      line-height: 1.1em;
+      margin-top: 8px;
+      letter-spacing: -0.9px;
     }
 
     .news-post__date {
@@ -68,6 +87,10 @@ const Main = styled.main`
       margin-top: 16px;
       margin-bottom: 32px;
       font-style: italic;
+    }
+
+    .content {
+      overflow-wrap: anywhere;
     }
 
     blockquote {
@@ -94,17 +117,23 @@ export const NewsPostTemplate = ({
   description,
 }) => {
   const PostContent = contentComponent || Content;
-
+  console.log(title);
   return (
     <Main>
       {helmet || ''}
       <header>
         <PreviewCompatibleImage className="splash" imageInfo={featuredimage} />
       </header>
-      <section className="card">
-        <h1 className="news-post__title has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop ">
+      <section className="card title-card">
+        <h1 className="news-post__title has-text-weight-bold is-size-3 is-size-2-tablet is-size-1-desktop ">
           {title}
         </h1>
+
+        <h3 className="news-post__subtitle has-text-weight-bold is-size-5  is-size-4-tablet is-size-4-desktop ">
+          {description}
+        </h3>
+
+        <hr></hr>
 
         <span className="news-post__date">
           {[location, new Date(date).toLocaleDateString()]
@@ -126,6 +155,10 @@ export const NewsPostTemplate = ({
             </ul>
           </div>
         ) : null}
+
+        <hr></hr>
+
+        <Link to="/news">« Back to all news</Link>
       </section>
     </Main>
   );
@@ -133,27 +166,28 @@ export const NewsPostTemplate = ({
 
 const NewsPost = ({ data }) => {
   const { markdownRemark: post } = data;
-
   return (
-    <NewsPostTemplate
-      content={post.html}
-      contentComponent={HTMLContent}
-      title={post.title}
-      date={post.date}
-      featuredimage={post.featuredimage}
-      location={post.location}
-      tags={post.tags}
-      description={post.description}
-      helmet={
-        <Helmet titleTemplate="%s | News">
-          <title>{`${post.frontmatter.title}`}</title>
-          <meta
-            name="description"
-            content={`${post.frontmatter.description}`}
-          />
-        </Helmet>
-      }
-    />
+    <Layout>
+      <NewsPostTemplate
+        content={post.html}
+        contentComponent={HTMLContent}
+        title={post.frontmatter.title}
+        date={post.frontmatter.date}
+        featuredimage={post.frontmatter.featuredimage}
+        location={post.frontmatter.location}
+        tags={post.frontmatter.tags}
+        description={post.frontmatter.description}
+        helmet={
+          <Helmet titleTemplate="%s | News">
+            <title>{`${post.frontmatter.title}`}</title>
+            <meta
+              name="description"
+              content={`${post.frontmatter.description}`}
+            />
+          </Helmet>
+        }
+      />
+    </Layout>
   );
 };
 
