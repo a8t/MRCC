@@ -100,6 +100,9 @@ export default function Index() {
       <Main>
         <header className="splash has-primary-background"></header>
         <section className="contact-main content card">
+          <h1 className="has-text-weight-bold is-size-3 is-size-2-tablet is-size-1-desktop ">
+            Contact
+          </h1>
           <section>
             <h2>Visit us!</h2>
             <p>

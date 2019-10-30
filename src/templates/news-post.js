@@ -129,7 +129,7 @@ export const NewsPostTemplate = ({
           {title}
         </h1>
 
-        <h3 className="news-post__subtitle has-text-weight-bold is-size-5  is-size-4-tablet is-size-4-desktop ">
+        <h3 className="news-post__subtitle is-size-5  is-size-4-tablet is-size-4-desktop ">
           {description}
         </h3>
 

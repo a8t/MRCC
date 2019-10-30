@@ -98,8 +98,8 @@ export default function Header() {
         <h2 className="is-size-6-mobile is-size-4-tablet is-size-4-desktop">
           {subtitle}
         </h2>
-        <ButtonLink to="/campaigns" isInverted>
-          See our campaigns →
+        <ButtonLink to="/programs" isInverted>
+          See our programs →
         </ButtonLink>
       </section>
     </HeaderContainer>
