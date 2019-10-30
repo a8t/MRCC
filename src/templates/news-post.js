@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import '../components/shared/all.sass';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import styled from 'styled-components';
 import Layout from '../components/shared/Layout';
 import Content, { HTMLContent } from '../components/shared/Content';
@@ -22,6 +23,7 @@ const Main = styled.main`
 
     .splash {
       grid-area: both-items;
+      width: 100%;
       height: 30vh;
       object-fit: cover;
       object-position: 50% 20%;
@@ -67,6 +69,15 @@ const Main = styled.main`
       margin-bottom: 32px;
       font-style: italic;
     }
+
+    blockquote {
+      background-color: #f5f5f5;
+      border-left: 5px solid #dbdbdb;
+      padding: 1.25em 1.5em;
+      &:not(:last-child) {
+        border-bottom: 1em;
+      }
+    }
   }
 `;
 
@@ -75,16 +86,20 @@ export const NewsPostTemplate = ({
   contentComponent,
   frontMatter,
   helmet,
+  title,
+  date,
+  featuredimage,
+  location,
+  tags,
+  description,
 }) => {
   const PostContent = contentComponent || Content;
-
-  const { title, date, featuredimage, location, tags } = frontMatter;
 
   return (
     <Main>
       {helmet || ''}
       <header>
-        <Img className="splash" fluid={featuredimage.childImageSharp.fluid} />
+        <PreviewCompatibleImage className="splash" imageInfo={featuredimage} />
       </header>
       <section className="card">
         <h1 className="news-post__title has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop ">
@@ -92,7 +107,9 @@ export const NewsPostTemplate = ({
         </h1>
 
         <span className="news-post__date">
-          {[location, date].filter(Boolean).join('  •  ')}
+          {[location, new Date(date).toLocaleDateString()]
+            .filter(Boolean)
+            .join('  •  ')}
         </span>
 
         <PostContent className="content" content={content} />
@@ -114,34 +131,29 @@ export const NewsPostTemplate = ({
   );
 };
 
-NewsPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-};
-
 const NewsPost = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout>
-      <NewsPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        frontMatter={post.frontmatter}
-        helmet={
-          <Helmet titleTemplate="%s | News">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-      />
-    </Layout>
+    <NewsPostTemplate
+      content={post.html}
+      contentComponent={HTMLContent}
+      title={post.title}
+      date={post.date}
+      featuredimage={post.featuredimage}
+      location={post.location}
+      tags={post.tags}
+      description={post.description}
+      helmet={
+        <Helmet titleTemplate="%s | News">
+          <title>{`${post.frontmatter.title}`}</title>
+          <meta
+            name="description"
+            content={`${post.frontmatter.description}`}
+          />
+        </Helmet>
+      }
+    />
   );
 };
 
@@ -163,7 +175,6 @@ export const pageQuery = graphql`
         title
         description
         tags
-        location
         featuredimage {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {

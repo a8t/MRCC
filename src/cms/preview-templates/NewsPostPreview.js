@@ -5,9 +5,12 @@ import { NewsPostTemplate } from '../../templates/news-post';
 const NewsPostPreview = ({ entry, widgetFor }) => (
   <NewsPostTemplate
     content={widgetFor('body')}
-    description={entry.getIn(['data', 'description'])}
-    tags={entry.getIn(['data', 'tags'])}
     title={entry.getIn(['data', 'title'])}
+    date={entry.getIn(['data', 'date'])}
+    featuredimage={entry.getIn(['data', 'featuredimage'])}
+    location={entry.getIn(['data', 'location'])}
+    tags={entry.getIn(['data', 'tags'])}
+    description={entry.getIn(['data', 'description'])}
   />
 );
 

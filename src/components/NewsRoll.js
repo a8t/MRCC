@@ -22,10 +22,7 @@ class NewsRoll extends React.Component {
                   {post.frontmatter.featuredimage ? (
                     <div className="featured-thumbnail">
                       <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.title}`,
-                        }}
+                        imageInfo={post.frontmatter.featuredimage}
                       />
                     </div>
                   ) : null}

@@ -54,7 +54,8 @@ export const NewsIndexPageTemplate = ({ title, image }) => {
       <Header>
         <PreviewCompatibleImage
           className="splash"
-          imageInfo={{ image, alt: 'MRCC' }}
+          alt="MRCC"
+          imageInfo={image}
         />
         <section>
           <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop has-primary-background">
