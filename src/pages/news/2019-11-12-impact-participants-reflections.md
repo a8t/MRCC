@@ -2,7 +2,7 @@
 templateKey: news-post
 title: IMPACT Participants' Reflections
 date: 2019-11-12T18:45:23.478Z
-description: IMPACT Workshop on Migrants' Rights to Health& Well-being
+description: Workshop on Migrants' Rights to Health& Well-being
 featuredpost: true
 featuredimage: /img/img-20191028-wa0008.jpg
 ---
@@ -13,8 +13,6 @@ I am a student of Assaulted Women and Children Counselor/Advocate program and in
 I'm an international student myself and on a personal level it was great to just connect with other migrants and allies, exchange experiences and thoughts and to just enjoy each other's company (and delicious food!). I am definitely looking forward to other workshops hosted by MRCC because I think they will give me practical skills and confidence to tackle oppressive systems and be successful in advocating for migrants in Canada.
 
 _\- Alina Przybyl_
-
-__
 
 \*\**
 
