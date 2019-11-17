@@ -130,7 +130,7 @@ export default function Index() {
             <h2>Phone</h2>
             <p>
               You can reach us at our toll-free hotline at{' '}
-              <a href="tel:+1-866-0275-4046">+1-866-0275-4046</a>.
+              <a href="tel:+1-866-0275-4046">+1-866-275-4046</a>.
             </p>
           </section>
 
