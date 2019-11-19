@@ -1,9 +1,11 @@
 ---
 templateKey: news-post
-title: IMPACT Participants' Reflections
-date: 2019-11-12T18:45:23.478Z
-description: Workshop on Migrants' Rights to Health& Well-being
-featuredpost: true
+title: '"Celebrate All Victories, Even Small Ones, And Build On Them"'
+date: 2019-10-30T17:45:00.000Z
+description: >-
+  IMPACT Participants' Reflections on the Workshop on Migrants' Rights to
+  Health& Well-being
+location: 'Toronto, Ontario'
 featuredimage: /img/img-20191028-wa0008.jpg
 ---
 I am very glad that I got to attend MRCC workshop on migrants' well-being and access to healthcare. I think considering how many people in Toronto actually don't have a status or have a precarious status, it's the topic that everyone should be interested in. Canada prides itself to have universal healthcare. But to whom this healthcare is actually available?
