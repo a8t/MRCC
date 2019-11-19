@@ -2,7 +2,7 @@
 templateKey: news-post
 title: 'Workshop: Writing for Empowerment'
 date: 2019-11-12T18:45:23.478Z
-description: IMPACT Volunteer-Training Session
+description: Free IMPACT Volunteer-Training Session
 location: 'Toronto, Ontario'
 featuredimage: /img/writing-for-empowerment.png
 tags:
@@ -11,8 +11,6 @@ tags:
   - Workshops
   - Education & Training
 ---
-Free IMPACT volunteer-training workshop
-
 **WRITING FOR EMPOWERMENT**
 
 **Saturday, November 23, 2019**
