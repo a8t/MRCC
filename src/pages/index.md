@@ -1,14 +1,14 @@
 ---
 templateKey: index-page
-image: /img/img_5158.jpg
+image: /img/IMG_0447.jpg
 title: All workers deserve dignity and justice.
 subtitle: Find out how you can have a say.
 mainpitch:
-  description: >
+  title: Who we are
+  description: >-
     The Migrants Resource Centre Canada is a registered not-profit migrant
     service institution which aims to empower workers through service,
     information and advocacy.
-  title: Who we are
 intro:
   blurbs:
     - image: /img/education.png

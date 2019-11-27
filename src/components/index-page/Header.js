@@ -30,7 +30,7 @@ const HeaderContainer = styled.header`
   .splash {
     z-index: -1;
 
-    filter: brightness(70%);
+    /* filter: brightness(70%); */
   }
 
   section {
