@@ -90,6 +90,12 @@ module.exports = {
         trackingId: 'UA-150754711-1',
       },
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: '619915438747131',
+      },
+    },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally
