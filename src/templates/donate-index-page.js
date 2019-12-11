@@ -25,26 +25,66 @@ const Main = styled.main`
       rgba(249, 211, 173, 1) 100%
     );
   }
-
-  .donate-body {
+  .overallgrid {
     padding: 4vmin;
     margin-top: -10vh;
     margin-bottom: 16px;
-    width: 95vw;
+    max-width: 1200px;
+
+    @media (min-width: 1024px) {
+      margin-top: -40vh;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      grid-template-areas: 'marisol donate';
+      gap: 32px;
+    }
+  }
+
+  .marisol-image {
+    @media (max-width: 1023px) {
+      display: none;
+    }
+    position: sticky;
+    top: 122px;
+    grid-area: marisol;
+    /* width: 400px; */
+    align-self: flex-start;
+    padding: 16px;
+
+    .marisol-quote {
+      padding: 16px 24px;
+      margin: -32px 16px 16px 16px;
+      font-size: 1.5em;
+      .emph {
+        margin-top: 8px;
+        color: #005555;
+        font-weight: bold;
+      }
+      cite {
+        display: block;
+        font-size: 0.8em;
+        margin-top: 16px;
+      }
+    }
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.19),
+      0 2px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .donate-body {
+    grid-area: donate;
+  }
+
+  .donate-body {
+    padding: 4vmin;
 
     @media (min-width: 479px) {
       padding: 6vmin;
-      margin-top: -10vh;
-      margin-bottom: 16px;
-      width: 90vw;
     }
-
     @media (min-width: 1024px) {
-      box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19),
-        0 12px 15px 0 rgba(0, 0, 0, 0.24);
+      box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.19),
+        0 2px 5px 0 rgba(0, 0, 0, 0.24);
       margin: auto;
-      margin-top: -30vh;
-      margin-bottom: 64px;
+      /* margin-bottom: 64px; */
     }
 
     display: flex;
@@ -64,7 +104,10 @@ const Main = styled.main`
         grid-area: main-copy;
       }
 
-      .marisol-image {
+      .marisol-image2 {
+        @media (min-width: 1024px) {
+          display: none;
+        }
         grid-area: marisol-image;
       }
       .your-impact {
@@ -85,11 +128,13 @@ const Main = styled.main`
 
       @media (min-width: 1024px) {
         display: block;
-        column-count: 2;
-        column-gap: 20px;
+
         row-gap: 20px;
         .your-impact {
           margin-top: 32px;
+
+          margin-left: -16px;
+          margin-right: -16px;
         }
         .donate-buttons {
           margin-top: 32px;
@@ -162,7 +207,7 @@ const Main = styled.main`
 export default function DonatePage({ data }) {
   const {
     markdownRemark: {
-      frontmatter: { title, subtitle, image },
+      frontmatter: { verticalimage, image },
     },
   } = useStaticQuery(graphql`
     query DonatePage {
@@ -178,6 +223,13 @@ export default function DonatePage({ data }) {
               }
             }
           }
+          verticalimage {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
@@ -187,113 +239,139 @@ export default function DonatePage({ data }) {
     <Layout>
       <Main>
         <header></header>
-        <section className="card donate-body">
-          <h1 className="has-text-weight-bold is-size-3 is-size-2-tablet is-size-1-desktop">
-            Donate Today.
-          </h1>
-          <div className="content-grid">
-            <div className="main-copy">
-              <h2 className="has-text-weight-bold is-size-6 is-size-5-tablet is-size-4-desktop ">
-                You can support migrant workers in Canada fight back against a
-                system that is rigged against them.
-              </h2>
-              <p>
-                Too often, migrant workers stay silent in demeaning and
-                degrading working conditions because they are afraid. When
-                migrant workers do not know their rights, do not have access to
-                free legal services, and do not have compatriots to whom they
-                can speak in their own languages, they do not speak out.
-              </p>
-              <p>
-                You can change that. By donating to MRCC, you deliver
-                on-the-ground services to migrant workers. Your solidarity
-                donation doesn’t just help one worker win a case.
-              </p>
-              <p className="has-text-weight-bold">
-                Your donation equips entire communities with the tools they need
-                to take collective action. Give now.
-              </p>
-            </div>
-            <div className="donate-buttons">
-              {[3, 27, 50, 100, 270, 500, 1000].map(amount => {
-                return (
-                  <form
-                    className="donate-form card"
-                    action="https://www.paypal.com/cgi-bin/webscr"
-                    method="post"
-                    onClick={e => e.target.submit()}
-                  >
-                    ${amount}
-                    <input
-                      type="hidden"
-                      name="business"
-                      value="info@migrantsresourcecentre.ca"
-                    />
-                    <input type="hidden" name="cmd" value="_donations" />
-                    <input
-                      type="hidden"
-                      name="hosted_button_id"
-                      value="MTK3UUJV58VMU"
-                    />
-                    <input type="hidden" name="amount" value={`${amount}.00`} />
-                    <input type="hidden" name="currency_code" value="CAD" />
-                    <img
-                      alt=""
-                      width="1"
-                      height="1"
-                      src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
-                    />
-                  </form>
-                );
-              })}
 
-              <form
-                className="donate-form card"
-                action="https://www.paypal.com/cgi-bin/webscr"
-                method="post"
-              >
-                <input
-                  type="hidden"
-                  name="business"
-                  value="info@migrantsresourcecentre.ca"
-                />
-                $
-                <input
-                  onChange={e => setCustomAmount(e.target.value)}
-                  className="custom-amount-input"
-                  value={customAmount}
-                ></input>
-                <input type="hidden" name="cmd" value="_donations" />
-                <input
-                  type="hidden"
-                  name="hosted_button_id"
-                  value="MTK3UUJV58VMU"
-                />
-                <input
-                  type="hidden"
-                  name="amount"
-                  value={`${customAmount}.00`}
-                />
-                <input type="hidden" name="currency_code" value="CAD" />
-                <input
-                  type="hidden"
-                  name="return"
-                  value="https://migrantsresourcecentre.ca/donation/thanks"
-                />
-                <img
-                  alt=""
-                  width="1"
-                  height="1"
-                  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
-                />
-              </form>
+        <div className="overallgrid">
+          <div className="marisol-image card">
+            <PreviewCompatibleImage
+              imageInfo={verticalimage}
+              resizeMode="contain"
+            />
+            <div className="card marisol-quote">
+              <p>
+                If I keep silent and scared, there are more migrant workers who
+                will become like me.
+              </p>
+              <p className="emph">
+                I fight for my rights as a worker. Because if we do, things
+                change.
+              </p>
+              <cite>Marisol Bobadilla, Migrant Worker</cite>
             </div>
-            <div className="marisol-image">
-              <PreviewCompatibleImage imageInfo={image} resizeMode="contain" />
-            </div>
-            <div className="your-impact">
+          </div>
+          <section className="card donate-body">
+            <h1 className="has-text-weight-bold is-size-3 is-size-2-tablet is-size-1-desktop">
+              Donate Today.
+            </h1>
+            <div className="content-grid">
+              <div className="main-copy">
+                <h2 className="has-text-weight-bold is-size-6 is-size-5-tablet is-size-4-desktop ">
+                  You can support migrant workers in Canada fight back against a
+                  system that is rigged against them.
+                </h2>
+                <p>
+                  Too often, migrant workers stay silent in demeaning and
+                  degrading working conditions because they are afraid. When
+                  migrant workers do not know their rights, do not have access
+                  to free legal services, and do not have compatriots to whom
+                  they can speak in their own languages, they do not speak out.
+                </p>
+                <p>
+                  You can change that. By donating to MRCC, you deliver
+                  on-the-ground services to migrant workers. Your solidarity
+                  donation doesn’t just help one worker win a case.
+                </p>
+                <p className="has-text-weight-bold">
+                  Your donation equips entire communities with the tools they
+                  need to take collective action. Give now.
+                </p>
+              </div>
+              <div className="donate-buttons">
+                {[3, 27, 50, 100, 270, 500, 1000].map(amount => {
+                  return (
+                    <form
+                      className="donate-form card"
+                      action="https://www.paypal.com/cgi-bin/webscr"
+                      method="post"
+                      onClick={e => e.target.submit()}
+                    >
+                      ${amount}
+                      <input
+                        type="hidden"
+                        name="business"
+                        value="info@migrantsresourcecentre.ca"
+                      />
+                      <input type="hidden" name="cmd" value="_donations" />
+                      <input
+                        type="hidden"
+                        name="hosted_button_id"
+                        value="MTK3UUJV58VMU"
+                      />
+                      <input
+                        type="hidden"
+                        name="amount"
+                        value={`${amount}.00`}
+                      />
+                      <input type="hidden" name="currency_code" value="CAD" />
+                      <img
+                        alt=""
+                        width="1"
+                        height="1"
+                        src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+                      />
+                    </form>
+                  );
+                })}
+
+                <form
+                  className="donate-form card"
+                  action="https://www.paypal.com/cgi-bin/webscr"
+                  method="post"
+                >
+                  <input
+                    type="hidden"
+                    name="business"
+                    value="info@migrantsresourcecentre.ca"
+                  />
+                  $
+                  <input
+                    onChange={e => setCustomAmount(e.target.value)}
+                    className="custom-amount-input"
+                    value={customAmount}
+                  ></input>
+                  <input type="hidden" name="cmd" value="_donations" />
+                  <input
+                    type="hidden"
+                    name="hosted_button_id"
+                    value="MTK3UUJV58VMU"
+                  />
+                  <input
+                    type="hidden"
+                    name="amount"
+                    value={`${customAmount}.00`}
+                  />
+                  <input type="hidden" name="currency_code" value="CAD" />
+                  <input
+                    type="hidden"
+                    name="return"
+                    value="https://migrantsresourcecentre.ca/donation/thanks"
+                  />
+                  <img
+                    alt=""
+                    width="1"
+                    height="1"
+                    src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+                  />
+                </form>
+              </div>
+
+              <div className="marisol-image2">
+                <PreviewCompatibleImage
+                  imageInfo={image}
+                  resizeMode="contain"
+                />
+              </div>
               <div
-                className="has-primary-background"
+                className="has-primary-background your-impact"
                 style={{
                   paddingLeft: 16,
                   paddingRight: 16,
@@ -329,8 +407,8 @@ export default function DonatePage({ data }) {
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </Main>
     </Layout>
   );
