@@ -4,10 +4,8 @@ import { Link } from 'gatsby';
 const ButtonLink = styled(Link).attrs(({ isInverted }) => ({
   className: `button ${isInverted ? 'is-inverted' : ''} is-info`,
 }))`
-  /* display: inline-block;
-  padding: 12px 16px 10px;
-  font-size: 18px;
-  font-size: 1rem;
+  font-size: 24px !important;
+  /* font-size: 1rem;
   line-height: 1.25;
   background-color: #fff;
   border-radius: 0.25rem;

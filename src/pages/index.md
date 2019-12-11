@@ -2,7 +2,7 @@
 templateKey: index-page
 image: /img/IMG_0447.jpg
 title: All workers deserve dignity and justice.
-subtitle: Find out how you can have a say.
+subtitle: Donate today to support migrant workers.
 mainpitch:
   title: Who we are
   description: >-
