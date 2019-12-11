@@ -29,13 +29,13 @@ const Main = styled.main`
     padding: 4vmin;
     margin-top: -10vh;
     margin-bottom: 16px;
-    max-width: 1200px;
+    max-width: 1250px;
 
     @media (min-width: 1024px) {
       margin-top: -40vh;
       margin-bottom: 16px;
       display: grid;
-      grid-template-columns: 400px 1fr;
+      grid-template-columns: 450px 1fr;
       grid-template-areas: 'marisol donate';
       gap: 32px;
     }
@@ -56,9 +56,11 @@ const Main = styled.main`
       padding: 16px 24px;
       margin: -32px 16px 16px 16px;
       font-size: 1.5em;
+      .blue {
+        color: #005555;
+      }
       .emph {
         margin-top: 8px;
-        color: #005555;
         font-weight: bold;
       }
       cite {
@@ -78,7 +80,7 @@ const Main = styled.main`
     padding: 4vmin;
 
     @media (min-width: 479px) {
-      padding: 6vmin;
+      padding: 32px 48px;
     }
     @media (min-width: 1024px) {
       box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.19),
@@ -92,9 +94,6 @@ const Main = styled.main`
 
     p {
       margin-top: 16px;
-      &.underline {
-        text-decoration: underline;
-      }
     }
 
     .content-grid {
@@ -153,6 +152,7 @@ const Main = styled.main`
       }
       gap: 16px;
       .donate-form {
+        cursor: pointer;
         -moz-box-align: center;
         align-items: center;
         display: flex;
@@ -251,11 +251,13 @@ export default function DonatePage({ data }) {
                 If I keep silent and scared, there are more migrant workers who
                 will become like me.
               </p>
-              <p className="emph">
+              <p className="emph blue">
                 I fight for my rights as a worker. Because if we do, things
                 change.
               </p>
-              <cite>Marisol Bobadilla, Migrant Worker</cite>
+              <cite>
+                <span className="emph">Marisol Bobadilla</span>, Migrant Worker
+              </cite>
             </div>
           </div>
           <section className="card donate-body">
@@ -265,25 +267,33 @@ export default function DonatePage({ data }) {
             <div className="content-grid">
               <div className="main-copy">
                 <h2 className="has-text-weight-bold is-size-6 is-size-5-tablet is-size-4-desktop ">
-                  You can support migrant workers in Canada fight back against a
-                  system that is rigged against them.
+                  You can support migrant workers in Canada in their fight
+                  against a system that is rigged against them.
                 </h2>
                 <p>
                   Too often, migrant workers stay silent in demeaning and
-                  degrading working conditions because they are afraid. When
-                  migrant workers do not know their rights, do not have access
-                  to free legal services, and do not have compatriots to whom
-                  they can speak in their own languages, they do not speak out.
+                  degrading working conditions because they are afraid.
+                </p>
+
+                <p>
+                  When migrant workers do not know their rights, do not have
+                  access to free legal services, and do not have compatriots to
+                  whom they can speak in their own languages,{' '}
+                  <b>they do not speak out.</b>
                 </p>
                 <p>
                   You can change that. By donating to MRCC, you deliver
-                  on-the-ground services to migrant workers. Your solidarity
-                  donation doesn’t just help one worker win a case.
+                  on-the-ground services to migrant workers.
                 </p>
-                <p className="has-text-weight-bold">
-                  Your donation equips entire communities with the tools they
-                  need to take collective action. Give now.
+                <p>
+                  Your solidarity donation doesn’t just help one worker win a
+                  case.{' '}
+                  <span className="has-text-weight-bold">
+                    Your contribution equips entire communities with the tools
+                    they need to take collective action.
+                  </span>
                 </p>
+                <p>Donate today!</p>
               </div>
               <div className="donate-buttons">
                 {[3, 27, 50, 100, 270, 500, 1000].map(amount => {
@@ -381,13 +391,16 @@ export default function DonatePage({ data }) {
                 }}
               >
                 <p className="has-text-weight-bold is-size-5 underline">
-                  Your impact:
+                  Your impact
                 </p>
 
                 <p>
                   Because of solidarity donations from people like you, this
                   year more than 100 migrant workers accessed education,
                   training programs, legal support, information and referrals.
+                </p>
+
+                <p>
                   More importantly, they were empowered to address the unequal
                   relations of power, linking individuals and their lived
                   experiences with an analysis of power and structural
