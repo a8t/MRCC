@@ -4,7 +4,7 @@ title: Writing for Empowerment Workshop
 date: 2020-01-15T17:30:44.406Z
 description: 'Recap of our IMPACT workshop that took place on Saturday, November 23rd, 2019.'
 location: 2482 Dufferin Street
-featuredimage: /img/unnamed.jpg
+featuredimage: /img/17492805_1740358002683235_8357800683771564648_o.jpg
 tags:
   - IMPACT
 ---
