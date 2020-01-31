@@ -2,9 +2,7 @@
 templateKey: news-post
 title: 'MRCC: Empowering migrant workers for collective action'
 date: 2020-01-31T04:46:38.342Z
-description: >-
-  From right: MRCC’s Jesson Reyes, Managing Director; Mithi Esguerra, Program
-  Director; and Kota Kimura, project staff person. (Photo: HG)
+description: ' Repost from The Philippine Reporter'
 location: 'Toronto, Ontario'
 featuredimage: /img/img_9874-1.jpg
 ---
