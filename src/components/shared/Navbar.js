@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-import Logo from './Logo';
+import React, { useState } from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
+import Logo from "./Logo";
 
 const Nav = styled.nav`
   border-bottom: 2px solid #ff8506;
@@ -64,7 +64,7 @@ const Navbar = () => {
     setActive(!active);
   };
 
-  const navBarActiveClass = active ? 'is-active' : '';
+  const navBarActiveClass = active ? "is-active" : "";
 
   return (
     <Nav
@@ -85,15 +85,17 @@ const Navbar = () => {
           Donate
         </NavbarLink>
 
-        <div
+        <button
           className={`navbar-burger burger ${navBarActiveClass}`}
           data-target="navMenu"
+          role="button"
+          style={{ border: "none", background: "none" }}
           onClick={() => toggleHamburger()}
         >
           <span />
           <span />
           <span />
-        </div>
+        </button>
       </div>
       <div className={`navbar-menu ${navBarActiveClass}`}>
         <div className="navbar-start">
