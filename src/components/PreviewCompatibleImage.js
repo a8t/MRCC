@@ -14,7 +14,7 @@ const PreviewCompatibleImage = ({
     );
   }
 
-  if (!imageInfo.childImageSharp) {
+  if (!imageInfo?.childImageSharp?.fluid) {
     return null;
   }
 

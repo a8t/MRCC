@@ -1,60 +1,64 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { kebabCase } from 'lodash';
-import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
-import '../components/shared/all.sass';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import styled from 'styled-components';
-import Layout from '../components/shared/Layout';
-import Content, { HTMLContent } from '../components/shared/Content';
+import React from "react";
+import PropTypes from "prop-types";
+import { kebabCase } from "lodash";
+import Helmet from "react-helmet";
+import { graphql, Link } from "gatsby";
+import "../components/shared/all.sass";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+import styled from "styled-components";
+import Layout from "../components/shared/Layout";
+import Content, { HTMLContent } from "../components/shared/Content";
 
 const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  min-height: 100vh;
 
   header {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'both-items';
-
+    grid-template-areas: "both-items";
+    height: 30vh;
+    position: relative;
     .splash {
+      position: absolute;
       grid-area: both-items;
       width: 100%;
       height: 30vh;
       object-fit: cover;
       object-position: 50% 20%;
-    }
-
-    @media screen and (min-width: 1024px) {
-      .splash {
-        height: 50vh;
-        width: 100%;
-      }
-    }
-
-    .splash {
       z-index: -1;
     }
   }
 
   .card {
-    padding: 8vmin;
-    margin: 2vmin;
+    box-sizing: border-box;
+    padding: 2em;
+    margin: 2em;
     margin-top: -10vh;
     margin-bottom: 16px;
-    max-width: 50em;
+    width: calc(100% - 2em);
+    max-width: 40em;
+
+    @media (min-width: 479px) {
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 767px) {
+      margin-bottom: 32px;
+    }
 
     @media (min-width: 1024px) {
       box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19),
         0 12px 15px 0 rgba(0, 0, 0, 0.24);
       margin: auto;
-      margin-top: -30vh;
+      margin-top: -10vh;
       margin-bottom: 64px;
-      max-width: 50em;
+      max-width: 40em;
     }
 
     display: flex;
@@ -120,8 +124,8 @@ export const NewsPostTemplate = ({
   console.log(title);
   return (
     <Main>
-      {helmet || ''}
-      <header>
+      {helmet || ""}
+      <header style={{ minHeight: "30vh", background: "rgba(0,0,0,0.1)" }}>
         <PreviewCompatibleImage className="splash" imageInfo={featuredimage} />
       </header>
       <section className="card title-card">
@@ -138,7 +142,7 @@ export const NewsPostTemplate = ({
         <span className="news-post__date">
           {[location, new Date(date).toLocaleDateString()]
             .filter(Boolean)
-            .join('  •  ')}
+            .join("  •  ")}
         </span>
 
         <PostContent className="content" content={content} />
@@ -147,7 +151,7 @@ export const NewsPostTemplate = ({
           <div style={{ marginTop: `4rem` }}>
             <h4>Tags</h4>
             <ul className="taglist">
-              {tags.map(tag => (
+              {tags.map((tag) => (
                 <li key={tag + `tag`}>
                   <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                 </li>
