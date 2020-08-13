@@ -1,15 +1,15 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
-import Img from 'gatsby-image';
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import styled from "styled-components";
+import Img from "gatsby-image";
 
-import ButtonLink from '../shared/ButtonLink';
+import ButtonLink from "../shared/ButtonLink";
 
 const HeaderContainer = styled.header`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: 'both-items';
+  grid-template-areas: "both-items";
 
   .splash,
   section {
@@ -62,34 +62,14 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const query = graphql`
-  query HeaderQuery {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      frontmatter {
-        title
-        subtitle
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-export default function Header() {
-  const {
-    markdownRemark: {
-      frontmatter: { title, subtitle, image },
-    },
-  } = useStaticQuery(query);
-
+export default function Header({ title, subtitle, heroImage }) {
   return (
     <HeaderContainer>
-      <Img className="splash" fluid={image.childImageSharp.fluid} alt="MRCC" />
+      <Img
+        className="splash"
+        fluid={heroImage.childImageSharp.fluid}
+        alt="MRCC"
+      />
 
       <section>
         <h1 className="is-size-5-mobile is-size-3-tablet is-size-1-desktop">

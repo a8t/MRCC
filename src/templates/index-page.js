@@ -8,9 +8,15 @@ import ButtonLink from "../components/shared/ButtonLink";
 import Header from "../components/index-page/Header";
 import IntroBlurbs from "../components/index-page/IntroBlurbs";
 
-export const IndexPageTemplate = ({ mainpitch }) => (
+export const IndexPageTemplate = ({
+  mainpitch,
+  title,
+  subtitle,
+  heroImage,
+  intro,
+}) => (
   <React.Fragment>
-    <Header />
+    <Header title={title} subtitle={subtitle} heroImage={heroImage} />
 
     <main style={{ display: "flex", flexDirection: "column" }}>
       <section
@@ -26,7 +32,7 @@ export const IndexPageTemplate = ({ mainpitch }) => (
         }}
       >
         <h1 className="subtitle">{mainpitch.description}</h1>
-        <IntroBlurbs />
+        <IntroBlurbs blurbs={intro.blurbs} />
         <ButtonLink to="/mission" style={{ alignSelf: "center" }}>
           Our mission
         </ButtonLink>
@@ -56,12 +62,9 @@ export const IndexPageTemplate = ({ mainpitch }) => (
 );
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
-  const { mainpitch } = frontmatter;
-
   return (
     <Layout>
-      <IndexPageTemplate mainpitch={mainpitch || {}} />
+      <IndexPageTemplate {...data.markdownRemark.frontmatter} />
     </Layout>
   );
 };
@@ -86,6 +89,30 @@ export const pageQuery = graphql`
         mainpitch {
           title
           description
+        }
+        title
+        subtitle
+        heroImage: image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 50) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        intro {
+          heading
+          blurbs {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            title
+            text
+            link
+          }
         }
       }
     }

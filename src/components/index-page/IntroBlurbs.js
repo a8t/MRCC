@@ -1,31 +1,7 @@
-import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import PreviewCompatibleImage from '../PreviewCompatibleImage';
-import styled from 'styled-components';
-
-const query = graphql`
-  query IntroBlurbsQuery {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      frontmatter {
-        intro {
-          heading
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            title
-            text
-            link
-          }
-        }
-      }
-    }
-  }
-`;
+import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import PreviewCompatibleImage from "../PreviewCompatibleImage";
+import styled from "styled-components";
 
 const BlurbsContainer = styled.section`
   position: relative;
@@ -34,8 +10,8 @@ const BlurbsContainer = styled.section`
   grid-gap: 16px;
   grid-template-columns: auto;
   grid-template-areas:
-    'blurbs blurbs blurbs'
-    '   .     .    button';
+    "blurbs blurbs blurbs"
+    "   .     .    button";
 
   .blurb {
     background: #f5f5f5;
@@ -97,15 +73,7 @@ const BlurbsContainer = styled.section`
   }
 `;
 
-const IntroBlurbs = () => {
-  const {
-    markdownRemark: {
-      frontmatter: {
-        intro: { blurbs },
-      },
-    },
-  } = useStaticQuery(query);
-
+const IntroBlurbs = ({ blurbs }) => {
   return (
     <BlurbsContainer>
       {blurbs.map(({ image, title, text, link }) => (
@@ -113,7 +81,7 @@ const IntroBlurbs = () => {
           <PreviewCompatibleImage
             className="img-container"
             imageInfo={image}
-            imgStyle={{ objectFit: 'contain' }}
+            imgStyle={{ objectFit: "contain" }}
             alt={text}
           />
           <h3>{title}</h3>

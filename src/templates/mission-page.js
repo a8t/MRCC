@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import Layout from '../components/shared/Layout';
-import Content, { HTMLContent } from '../components/shared/Content';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/shared/Layout";
+import Content, { HTMLContent } from "../components/shared/Content";
 
 const Main = styled.main`
   margin: auto;
@@ -14,7 +14,7 @@ const Main = styled.main`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'both-items';
+    grid-template-areas: "both-items";
 
     .splash,
     section {
@@ -80,8 +80,8 @@ export const MissionPageTemplate = ({
     <Main>
       <header>
         <Img className="splash" fluid={image.childImageSharp.fluid} />
-        <section>
-          <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop has-primary-background">
+        <section className="has-primary-background">
+          <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop ">
             {title}
           </h1>
         </section>
@@ -122,7 +122,7 @@ export const missionPageQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 2048, quality: 50) {
               ...GatsbyImageSharpFluid
             }
           }

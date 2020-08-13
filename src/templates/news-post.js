@@ -13,7 +13,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(0, 0, 0, 0.05);
+  /* background: rgba(9, 9, 9, 0.05); */
   min-height: 100vh;
 
   header {
@@ -50,6 +50,8 @@ const Main = styled.main`
 
     @media (min-width: 767px) {
       margin-bottom: 32px;
+      padding: 8em;
+      max-width: 56em;
     }
 
     @media (min-width: 1024px) {
@@ -58,7 +60,8 @@ const Main = styled.main`
       margin: auto;
       margin-top: -10vh;
       margin-bottom: 64px;
-      max-width: 40em;
+      padding: 8em;
+      max-width: 56em;
     }
 
     display: flex;
@@ -121,11 +124,11 @@ export const NewsPostTemplate = ({
   description,
 }) => {
   const PostContent = contentComponent || Content;
-  console.log(title);
+
   return (
     <Main>
       {helmet || ""}
-      <header style={{ minHeight: "30vh", background: "rgba(0,0,0,0.1)" }}>
+      <header style={{ minHeight: "30vh" }}>
         <PreviewCompatibleImage className="splash" imageInfo={featuredimage} />
       </header>
       <section className="card title-card">

@@ -1,16 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import React from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
 
-import Layout from '../components/shared/Layout';
-import NewsRoll from '../components/NewsRoll';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import Layout from "../components/shared/Layout";
+import NewsRoll from "../components/NewsRoll";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 const Header = styled.header`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: 'both-items';
+  grid-template-areas: "both-items";
 
   .splash,
   section {
@@ -48,6 +48,11 @@ const Header = styled.header`
   }
 `;
 
+const Main = styled.main`
+  position: relative;
+  top: -8em;
+`;
+
 export const NewsIndexPageTemplate = ({ title, image }) => {
   return (
     <React.Fragment>
@@ -57,19 +62,15 @@ export const NewsIndexPageTemplate = ({ title, image }) => {
           alt="MRCC"
           imageInfo={image}
         />
-        <section>
-          <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop has-primary-background">
+        <section className="has-primary-background">
+          <h1 className="has-text-weight-bold is-size-5-mobile is-size-3-tablet is-size-1-desktop">
             {title}
           </h1>
         </section>
       </Header>
-      <section className="section">
-        <div className="container">
-          <div className="content">
-            <NewsRoll />
-          </div>
-        </div>
-      </section>
+      <Main className="news section container content">
+        <NewsRoll />
+      </Main>
     </React.Fragment>
   );
 };

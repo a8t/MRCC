@@ -6,41 +6,43 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'news'
-    label: 'News'
-    folder: 'src/pages/news'
+  - name: "news"
+    label: "News"
+    folder: "src/pages/news"
     # this is md so that .markdown is ignored
     # ie .markdown can be used for the index page
-    extension: 'md'
+    extension: "md"
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'news-post',
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "news-post",
         }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Location', name: 'location', widget: 'string' }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
-
-  - name: 'pages'
-    label: 'Pages'
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+    sortableFields: [date]
+  - name: "pages"
+    label: "Pages"
+    editor:
+      preview: false
     files:
-      - file: 'src/pages/index.md'
-        label: 'Landing Page'
-        name: 'index'
+      - file: "src/pages/index.md"
+        label: "Landing Page"
+        name: "index"
         fields:
           - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'index-page',
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
             }
           - { label: Image, name: image, widget: image }
           - { label: Title, name: title, widget: string }
@@ -75,30 +77,28 @@ collections:
                   },
                 ],
             }
-
-      - file: 'src/pages/mission/index.md'
-        label: 'Mission'
-        name: 'mission'
+      - file: "src/pages/mission/index.md"
+        label: "Mission"
+        name: "mission"
         fields:
           - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'mission-page',
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "mission-page",
             }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-
-      - file: 'src/pages/news/index.markdown'
-        label: 'News'
-        name: 'news-index'
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/news/index.markdown"
+        label: "News"
+        name: "news-index"
         fields:
           - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'news-index-page',
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "news-index-page",
             }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
           - { label: Image, name: image, widget: image }

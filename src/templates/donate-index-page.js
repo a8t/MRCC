@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Img from 'gatsby-image';
-import Layout from '../components/shared/Layout';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import { useStaticQuery } from 'gatsby';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Img from "gatsby-image";
+import Layout from "../components/shared/Layout";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+import { useStaticQuery, graphql } from "gatsby";
 
 const Main = styled.main`
   display: flex;
@@ -36,7 +36,7 @@ const Main = styled.main`
       margin-bottom: 16px;
       display: grid;
       grid-template-columns: 450px 1fr;
-      grid-template-areas: 'marisol donate';
+      grid-template-areas: "marisol donate";
       gap: 32px;
     }
   }
@@ -118,10 +118,10 @@ const Main = styled.main`
 
       grid-template-columns: 1fr;
       grid-template-areas:
-        'marisol-image'
-        'main-copy '
-        'donate-buttons'
-        'your-impact';
+        "marisol-image"
+        "main-copy "
+        "donate-buttons"
+        "your-impact";
 
       grid-gap: 16px;
 
@@ -218,14 +218,14 @@ export default function DonatePage({ data }) {
         frontmatter {
           image {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
+              fluid(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
           verticalimage {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
+              fluid(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -234,7 +234,7 @@ export default function DonatePage({ data }) {
       }
     }
   `);
-  const [customAmount, setCustomAmount] = useState('');
+  const [customAmount, setCustomAmount] = useState("");
   return (
     <Layout>
       <Main>
@@ -278,7 +278,7 @@ export default function DonatePage({ data }) {
                 <p>
                   When migrant workers do not know their rights, do not have
                   access to free legal services, and do not have compatriots to
-                  whom they can speak in their own languages,{' '}
+                  whom they can speak in their own languages,{" "}
                   <b>they do not speak out.</b>
                 </p>
                 <p>
@@ -287,7 +287,7 @@ export default function DonatePage({ data }) {
                 </p>
                 <p>
                   Your solidarity donation doesn’t just help one worker win a
-                  case.{' '}
+                  case.{" "}
                   <span className="has-text-weight-bold">
                     Your contribution equips entire communities with the tools
                     they need to take collective action.
@@ -296,13 +296,13 @@ export default function DonatePage({ data }) {
                 <p>Donate today!</p>
               </div>
               <div className="donate-buttons">
-                {[3, 27, 50, 100, 270, 500, 1000].map(amount => {
+                {[3, 27, 50, 100, 270, 500, 1000].map((amount) => {
                   return (
                     <form
                       className="donate-form card"
                       action="https://www.paypal.com/cgi-bin/webscr"
                       method="post"
-                      onClick={e => e.target.submit()}
+                      onClick={(e) => e.target.submit()}
                     >
                       ${amount}
                       <input
@@ -344,7 +344,7 @@ export default function DonatePage({ data }) {
                   />
                   $
                   <input
-                    onChange={e => setCustomAmount(e.target.value)}
+                    onChange={(e) => setCustomAmount(e.target.value)}
                     className="custom-amount-input"
                     value={customAmount}
                   ></input>
@@ -387,7 +387,7 @@ export default function DonatePage({ data }) {
                   paddingRight: 16,
                   paddingTop: 2,
                   paddingBottom: 16,
-                  color: 'white',
+                  color: "white",
                 }}
               >
                 <p className="has-text-weight-bold is-size-5 underline">
@@ -413,7 +413,7 @@ export default function DonatePage({ data }) {
                   the migrant worker community. Donate now.
                 </p>
 
-                <p style={{ fontStyle: 'italic' }}>
+                <p style={{ fontStyle: "italic" }}>
                   We would like to sincerely thank all of our funders and donors
                   for their dedication to justice, welfare, and empowerment for
                   migrant workers.

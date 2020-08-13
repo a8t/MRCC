@@ -14,9 +14,9 @@ CMS.registerMediaLibrary(cloudinary);
 
 // disabling previews bc theyre broken due to staticqueries
 const previews = {
-  // index: IndexPagePreview,
-  // mission: MissionPagePreview,
-  // "news-index": NewsIndexPagePreview,
+  index: IndexPagePreview,
+  mission: MissionPagePreview,
+  "news-index": NewsIndexPagePreview,
   news: NewsPostPreview,
 };
 
