@@ -4,7 +4,7 @@ import { Link, graphql, StaticQuery, useStaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import _ from "lodash";
 
-export default function NewsRoll({ isHomeScreen }) {
+export default function NewsRoll({ isHomeScreen = false }) {
   const data = useStaticQuery(graphql`
     query NewsRollQuery {
       allMarkdownRemark(
