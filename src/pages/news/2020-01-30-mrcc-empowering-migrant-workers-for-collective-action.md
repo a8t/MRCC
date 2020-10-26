@@ -1,14 +1,16 @@
 ---
 templateKey: news-post
-title: 'MRCC: Empowering migrant workers for collective action'
+title: "MRCC: Empowering migrant workers for collective action"
 date: 2020-01-31T04:46:38.342Z
-description: ' Repost from The Philippine Reporter'
-location: 'Toronto, Ontario'
+description: " Repost from The Philippine Reporter"
+location: Toronto, Ontario
 featuredimage: /img/img_9874-1.jpg
+tags:
+  - IMPACT
 ---
-In December 2019, staff persons from the Migrants Resource Centre Canada (MRCC) had a unique opportunity to present at the National Ethnic Press and Media Council of Canada (NEPMCC) about its services and programs. Managing Director Jesson Reyes, Program Coordinator Mithi Esguerra, and Project Staff person Kota Kimura expounded on the current activities and projects of the institution to the membership of the NEPMCC.
+In December 2019, staff persons and volunteers from the Migrants Resource Centre Canada (MRCC) had a unique opportunity to present at the National Ethnic Press and Media Council of Canada (NEPMCC) about its services and programs. Managing Director Jesson Reyes, Program Coordinator Mithi Esguerra, and former Project Staff person Kota Kimura expounded on the current activities and projects of the institution to the membership of the NEPMCC.
 
-MRCC is a newly form-migrant service institution incorporated in 2017, based in Toronto. The institution commenced operations in 2018 from a shared space with the Centre for Women and Trans People at the University of Toronto, conducting intake and assisting distressed migrant workers. In 2019, the organization opened its new office on Dufferin Street.
+MRCC is a newly formed-migrant service institution incorporated in 2017, based in Toronto. The institution commenced operations in 2018 from a shared space with the Centre for Women and Trans People at the University of Toronto, conducting intake and assisting distressed migrant workers. In 2019, the organization opened its new office on Dufferin Street.
 
 To improve the lives of migrant and immigrant workers by advancing their rights and dignity while working in Canada – that is the organization’s mandate. And migrant workers are “crucial and key actors in the pursuit of our goal,” according to Jesson Reyes, Managing Director of MRCC.
 
@@ -30,14 +32,10 @@ Through its research and advocacy program, MRCC co-leads mass campaigns, conduct
 
 MRCC is currently conducting a six-month capacity-building project called Immigrants and Migrants Participating for Collective Transformation (IMPACT), with funding from the Department of Canadian Heritage. The project has engaged more than 60 participants since September 2019, and will continue until the end of March this year. IMPACT is an integrated project which aims to build the organizational capacity of MRCC which in turn contributes to the overall capacity of the migrant communities it serves.
 
- 
-
 (PRESS RELEASE)
 
 ————————————
 
 To learn more about the work of MRCC, contact 1-866-275-4046 or info@migrantsresourcecentre.ca, or visit the website www.migrantsresourcecentre.ca.
-
-
 
 Their office is located at 2482 Dufferin St., Unit 207, Toronto.
