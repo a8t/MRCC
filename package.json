@@ -23,7 +23,7 @@
     "gatsby-remark-images": "^3.3.25",
     "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-source-filesystem": "^2.3.24",
-    "gatsby-transformer-remark": "^2.8.28",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.1.9",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.19",
